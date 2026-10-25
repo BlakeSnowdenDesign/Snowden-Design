@@ -7,6 +7,9 @@ Redesign of [snowden-design.com](https://www.snowden-design.com), Blake Snowden'
 | Page | File | Wix iframe height (desktop / tablet / phone) |
 | --- | --- | --- |
 | Home | `pages/home/snowden-home.html` | 7,420 / 9,230 / 12,030 px |
+| Growth packages (`/packages`) | `pages/packages/snowden-packages.html` | 8,760 / 12,820 / 17,200 px |
+
+Each page folder has a `preview.html` (browser window + copy-code panel) generated from the embed file. `pages/packages/SEO-KIT.md` lists the native Wix text, SEO panel fields and JSON-LD for that page.
 
 `pages/home/preview.html` is the preview page (browser window + copy-code panel) generated from the embed file.
 
