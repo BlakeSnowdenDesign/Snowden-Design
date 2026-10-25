@@ -2,17 +2,17 @@
 
 Oct 25, 2026 · BLAKE · Living version: [Claude Doc](https://claude.ai/artifact/RHkYkpbJjWaaEhqbFMa7qd)
 
-Every page built for the new Wix site follows this spec. Page threads (Claude and Replit) should read the "What Wix embeds can and can't control" section before building.
+Every page built for the new Wix site follows this spec. Per-page copy lives in the copy deck (`docs/copy-deck.md`, PR #9); the page tables below match its seven-page site map. Page threads (Claude and Replit) should read the "What Wix embeds can and can't control" section before building.
 
 ## Summary
 
 Snowden Design should rank and get cited as **the Denver web designer who builds the site, renders the product in 3D, and runs the growth plan afterward**. That combination is rare locally, so it is the positioning every page reinforces.
 
-Three primary targets carry the site:
+Three primary targets carry the site (seven pages: Home, Work, 3D Visualization, Packages, About, Contact, Privacy Policy):
 
 1. **Web design Denver** (and "Denver web designer", "Colorado web design") for the Home page.
-2. **3D architectural visualization** for the 3D showcase page (/3d-visualization), proven by the MONGRAIN interactive building-envelope explorer; the Work page keeps "3D product rendering services".
-3. **Website care plans + SEO/GEO, ads and social management** for a Services/Packages page, which is where recurring revenue comes from.
+2. **3D architectural visualization** for the 3D showcase page (/3d-visualization), proven by the MONGRAIN interactive building-envelope explorer. Work owns "Denver web design portfolio".
+3. **Website care plans + SEO/GEO, ads and social management** for the Packages page, which is where recurring revenue comes from.
 
 How to use this doc: the keyword map says what each cluster targets, the page assignments say which page owns which keyword (one primary per page, no two pages competing), and the spec and schema sections are the checklist every page build follows before BLAKE publishes in Wix.
 
@@ -27,7 +27,7 @@ Nine clusters cover the skill set. Tier 1 = commercial intent and winnable local
 | Local web design | web design Denver | Denver web designer; Colorado web design; small business website design Denver; custom website design Colorado; web developer Denver CO | Hire | 1 |
 | Wix specialist | Wix web designer | Wix Studio designer Denver; Wix expert Colorado; Wix website redesign; Wix SEO setup; migrate website to Wix | Hire | 1 |
 | 3D architectural visualization | 3D architectural visualization | interactive 3D building model; exploded assembly animation; BIM-style visualization; building envelope 3D model; construction 3D visualization Denver; WebGL / Three.js 3D model for websites | Hire | 1 |
-| 3D product rendering | 3D product rendering services | 3D modeling services Denver; photorealistic product rendering; CAD to render; 3D product visualization for ecommerce; 360 product spin | Hire | 1 |
+| 3D product rendering (future) | 3D product rendering services | photorealistic product rendering; CAD to render; 3D product visualization for ecommerce; 360 product spin | Hire | 3 (no page until product-render samples exist) |
 | SEO | SEO services Denver | local SEO Colorado; Google Business Profile optimization; technical SEO audit; on-page SEO for small business; Wix SEO services | Hire | 1 |
 | GEO / AI search | generative engine optimization | GEO services; AI search optimization; how to rank in ChatGPT answers; get cited by Google AI Overviews; answer engine optimization (AEO) | Learn, then hire | 2 |
 | Analytics and reporting | Google Analytics 4 setup | GA4 dashboard for small business; Looker Studio website report; monthly website performance report; conversion tracking setup | Hire / learn | 2 |
@@ -43,8 +43,8 @@ Nine clusters cover the skill set. Tier 1 = commercial intent and winnable local
 - What is GEO and how is it different from SEO?
 - How do I get my business mentioned by ChatGPT or Google AI Overviews?
 - What is included in a website maintenance plan?
-- How much does 3D product rendering cost?
-- Is 3D rendering cheaper than a product photoshoot?
+- How much does 3D architectural visualization cost?
+- Is an interactive 3D model better than renders or video for a construction project?
 - What should a monthly website analytics report include?
 - Do I need Google Ads if I have good SEO?
 
@@ -56,19 +56,15 @@ Each page owns one primary keyword and no other page uses that keyword as its pr
 
 | Page | Slug | Primary keyword | Secondary keywords | Schema types |
 | --- | --- | --- | --- | --- |
-| Home | / | web design Denver | Denver web designer; Wix web designer; 3D architectural visualization; website care plans | ProfessionalService (LocalBusiness), WebSite, Organization |
-| Work | /work | 3D product rendering services | web design portfolio Denver; 3D modeling services; Wix website examples | CollectionPage, CreativeWork per project, ImageObject |
-| 3D visualization | /3d-visualization | 3D architectural visualization | interactive 3D building model; exploded assembly animation; BIM-style visualization; building envelope 3D model (MONGRAIN) | WebPage, CreativeWork / 3DModel, VideoObject if a walkthrough video is added |
-| Services | /services | Wix web designer Denver | custom website design Colorado; SEO services Denver; generative engine optimization; Google Analytics 4 setup | Service (one per offer), FAQPage |
-| Growth packages | /packages | website maintenance plans | managed website hosting Colorado; Google Ads management Denver; social media management Denver; monthly website report | Service + OfferCatalog, FAQPage |
-| SEO & GEO | /seo-geo | SEO services Denver | generative engine optimization; AI search optimization; local SEO Colorado; Google Business Profile optimization | Service, FAQPage |
-| Analytics sample | /analytics-dashboard | GA4 dashboard for small business | Looker Studio website report; monthly website performance report | WebPage, Dataset (optional) |
-| About | /about | Denver web developer and 3D artist | Blake Snowden; web design and 3D visualization Colorado | AboutPage, Person |
-| Contact | /contact | contact a Denver web designer | free website consultation Denver; website quote Colorado | ContactPage, ProfessionalService |
+| Home | / | web design Denver | Denver web designer; Wix web designer Denver; web developer Denver; SEO and GEO services; B2B and B2C business development strategy | ProfessionalService, WebSite, WebPage, FAQPage |
+| Work | /work | Denver web design portfolio | Wix website examples; hospitality website design; e-commerce website design; video and drone production; UX and branding | CollectionPage, ItemList of CreativeWork |
+| 3D Visualization | /3d-visualization | 3D architectural visualization | interactive 3D building model; exploded assembly animation; BIM-style visualization; 3D modeling services Denver; interactive 3D for Wix | WebPage, Service, CreativeWork, FAQPage |
+| Packages | /packages | website maintenance plans | website care plan Denver; managed Wix hosting; SEO and GEO services Denver; Google Ads management Denver; social media management; monthly GA4 report | WebPage, Service + OfferCatalog, FAQPage |
+| About | /about | Denver web developer and 3D artist | Blake Snowden; Snowden Design Denver; B2B and B2C business development | AboutPage, Person |
+| Contact | /contact | contact a Denver web designer | hire a web designer in Denver; free website consultation Denver; web development and digital marketing consultation | ContactPage |
+| Privacy Policy | /privacy-policy | none (footer only) | none | WebPage |
 
-Slug notes: Wix keeps old slugs like /contact-1 unless renamed. Rename to the slugs above and add 301 redirects from /projects and /contact-1 in Wix's URL Redirect Manager so existing rankings carry over.
-
-If SEO & GEO and Services end up as one page, keep "SEO services Denver" on that merged page and drop the separate row; don't let both pages target it.
+Slug notes: there is no separate Services, SEO & GEO or Analytics page. "SEO services Denver" and "Wix web designer Denver" live in Home's services section and Packages' SEO & GEO section; if a /seo-geo page is added later, it takes "SEO services Denver" back from Packages. Wix keeps old slugs like /contact-1 unless renamed. Rename to the slugs above and add 301 redirects from /projects and /contact-1 in Wix's URL Redirect Manager so existing rankings carry over.
 
 ## GEO: getting cited in AI answers
 
@@ -96,20 +92,18 @@ Titles stay under 60 characters with the primary keyword first; descriptions run
 
 | Page | Title tag | Meta description |
 | --- | --- | --- |
-| Home | Web Design Denver \| Wix, 3D Rendering & SEO \| Snowden Design | Denver web designer building fast Wix sites, photorealistic 3D product renders and SEO/GEO growth plans. Book a free consultation with Snowden Design. |
-| Work | 3D Product Rendering & Web Design Portfolio \| Snowden Design | See photorealistic 3D product renders and custom Wix websites by Snowden Design, a Denver web designer and 3D artist serving clients nationwide. |
-| 3D visualization | 3D Architectural Visualization Denver \| Snowden Design | Explore an interactive 3D building-envelope model: exploded wall, roof and foundation assemblies built in Three.js by Snowden Design, Denver. |
-| Services | Wix Web Designer Denver \| Design, SEO & 3D \| Snowden Design | Custom Wix website design, SEO and GEO, GA4 analytics and 3D product rendering from a Denver web designer. Clear pricing, fast turnaround, local support. |
-| Growth packages | Website Maintenance Plans & Growth Packages \| Snowden Design | Monthly website care plans: hosting, updates, security, GA4 reports, SEO/GEO, Google Ads and social media management from Snowden Design in Denver, CO. |
-| SEO & GEO | SEO & GEO Services Denver \| Rank in Google and AI Answers | Local SEO and generative engine optimization in Denver. Get found on Google, in AI Overviews and in ChatGPT answers with structured data and content that ranks. |
-| Analytics sample | Sample GA4 Dashboard for Small Business \| Snowden Design | See the Google Analytics 4 dashboard every Snowden Design client gets: traffic, leads, search rankings and AI referrals, reported monthly in plain English. |
-| About | About Blake Snowden \| Denver Web Developer & 3D Artist | Blake Snowden is a Denver web developer and 3D artist who builds Wix websites, renders products in 3D and runs SEO and GEO growth plans for small businesses. |
+| Home | Web Design Denver \| Wix, 3D & SEO/GEO \| Snowden Design | Denver web designer building Wix websites, interactive 3D visualization and SEO/GEO growth plans for B2B and B2C brands. Book a free consultation. |
+| Work | Denver Web Design Portfolio \| Wix Sites \| Snowden Design | Live websites by Snowden Design, a Denver web designer: Helen Falls Lodge, Schultz's Gourmet, Shadow Creek Ranch and more, with video, drone and 3D. |
+| 3D Visualization | 3D Architectural Visualization Denver \| Snowden Design | Interactive 3D building models, exploded assembly animations and BIM-style renders by Snowden Design in Denver. See the live Mongrain envelope explorer. |
+| Packages | Website Maintenance Plans & Growth Packages \| Snowden Design | Monthly website care plans: hosting, updates, security, GA4 reports, SEO/GEO, Google Ads and social media management from Snowden Design in Denver, CO. |
+| About | About Blake Snowden \| Denver Web Developer & 3D Artist | Blake Snowden is a Denver web developer and 3D artist who builds Wix websites, interactive 3D and SEO/GEO growth plans for B2B and B2C brands. |
 | Contact | Contact Snowden Design \| Denver Web Designer \| 720-340-2611 | Book a free website consultation with Snowden Design in Denver. Call 720-340-2611 or email blake@snowden-design.com for a quote on design, 3D or SEO. |
+| Privacy Policy | Privacy Policy \| Snowden Design | How Snowden Design collects, uses and protects the information you share through this website, including contact forms and analytics. |
 
 ### Social tags (Open Graph and X/Twitter)
 
 - `og:title` and `og:description`: reuse the title and description above (Wix fills these from the SEO panel unless overridden under Social Share).
-- `og:image`: a 1200 x 630 px JPG or PNG under 1 MB per page; use a MONGRAIN exploded building-envelope render on 3D Visualization, a product render on Work, and a branded card elsewhere. Text kept inside the centre 1000 x 500 px so crops don't cut it.
+- `og:image`: a 1200 x 630 px JPG or PNG under 1 MB per page; use a MONGRAIN exploded building-envelope render on 3D Visualization, a project-screen collage on Work, and a branded card elsewhere. Text kept inside the centre 1000 x 500 px so crops don't cut it.
 - `og:type` = website (Home) or article (blog posts); `og:locale` = en_US; `og:site_name` = Snowden Design.
 - `twitter:card` = summary_large_image. Add `twitter:site` only if BLAKE has an X account.
 
@@ -120,7 +114,7 @@ Titles stay under 60 characters with the primary keyword first; descriptions run
 3. **Primary keyword in the first 100 words**, once in an H2, and in the image alt text of the lead image. Two or three natural uses per page is enough.
 4. **Alt text** describes the image and its context in under 125 characters: "Exploded 3D view of a hospital wall and roof assembly from the MONGRAIN building-envelope explorer". Decorative images get empty alt. File names match: `mongrain-hospital-envelope-exploded-3d.webp`, not `IMG_2041.png`.
 5. **Images**: WebP or AVIF, at most 200 KB for photos and renders on page (offer full-size renders via click-through), explicit width and height to avoid layout shift, lazy-loading below the fold.
-6. **Internal links**: every page links to Services and Contact; Work project cards link to the matching service; the Packages page links to the Analytics sample. Anchor text uses keywords ("3D product rendering services"), never "click here".
+6. **Internal links**: every page links to Packages and Contact; Work links to 3D Visualization with "3D architectural visualization"; Packages shows the sample GA4 dashboard. Anchor text uses keywords ("3D architectural visualization"), never "click here".
 7. **Canonical** = the clean `https://www.snowden-design.com/<slug>` URL (Wix sets it; check it isn't pointing at the wixsite.com address).
 8. **NAP block** (name, Denver service area, 720-340-2611, email) in the site footer, identical on every page.
 9. **Calls to action**: one primary CTA per screen ("Book a free consultation"), and a tel: link on mobile.
@@ -143,7 +137,7 @@ Snowden Design is a service-area business, so the address carries city and regio
   "url": "https://www.snowden-design.com/",
   "logo": "https://www.snowden-design.com/<logo-path>.png",
   "image": "https://www.snowden-design.com/<og-image>.jpg",
-  "description": "Denver web design studio building Wix websites, photorealistic 3D product renders and SEO/GEO growth plans.",
+  "description": "Denver web design studio building Wix websites, interactive 3D visualization and SEO/GEO growth plans.",
   "telephone": "+1-720-340-2611",
   "email": "blake@snowden-design.com",
   "founder": { "@id": "https://www.snowden-design.com/about#blake" },
@@ -158,7 +152,7 @@ Snowden Design is a service-area business, so the address carries city and regio
     { "@type": "State", "name": "Colorado" },
     { "@type": "Country", "name": "United States" }
   ],
-  "knowsAbout": ["Web design", "Wix Studio", "3D modeling", "3D product rendering", "Search engine optimization", "Generative engine optimization", "Google Analytics 4", "Google Ads", "Social media marketing"],
+  "knowsAbout": ["Web design", "Wix Studio", "3D modeling", "3D architectural visualization", "Search engine optimization", "Generative engine optimization", "Google Analytics 4", "Google Ads", "Social media marketing"],
   "priceRange": "$$",
   "sameAs": [
     "<Google Business Profile URL>",
@@ -183,7 +177,7 @@ Snowden Design is a service-area business, so the address carries city and regio
 }
 ```
 
-### 3. Service with packages (Services, Growth packages, SEO & GEO)
+### 3. Service with packages (Packages; 3D Visualization)
 
 One Service block per offer. On the packages page, list each tier as an Offer; show the same prices in visible text or leave `price` out.
 
@@ -215,7 +209,7 @@ One Service block per offer. On the packages page, list each tier as an Offer; s
 }
 ```
 
-For 3D rendering on Services, repeat the Service block with `"name": "3D product rendering"` and `"serviceType": "3D modeling and rendering"`.
+On 3D Visualization, repeat the Service block with `"name": "3D architectural visualization"` and `"serviceType": "Interactive 3D modeling and visualization"`.
 
 ### 4. FAQPage (any page with a visible FAQ)
 
