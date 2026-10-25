@@ -11,8 +11,9 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Snowden Design">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="3D Architectural Visualization Denver | Snowden Design">
-<meta property="og:description" content="Interactive 3D building models, exploded assembly animations and BIM-style renders by Snowden Design in Denver. See the live Mongrain envelope explorer.">
+<meta property="og:title" content="Interactive 3D architectural visualization: the Mongrain envelope explorer">
+<meta property="og:description" content="Take a hospital building envelope apart layer by layer, from foundation to roof. Built in Three.js for Wix by Snowden Design, Denver.">
+<meta property="og:image:alt" content="Exploded 3D model of a hospital building envelope by Snowden Design">
 <meta property="og:url" content="https://www.snowden-design.com/3d-visualization">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -363,7 +364,7 @@ a{color:inherit}
     <div class="sd-process">
       <div class="sd-process__intro sd-r">
         <p>Most projects start with what you already have: CAD exports, architectural drawings, product spec sheets or a folder of photos. Mongrain's started with system drawings and photos of the finished building.</p>
-        <p>Looking for still renders of a product instead? See our <a href="https://www.snowden-design.com/work" target="_top">3D product rendering services</a> and portfolio.</p>
+        <p>See more projects in our <a href="https://www.snowden-design.com/work" target="_top">Denver web design portfolio</a>. Need a full site around your model? See <a href="https://www.snowden-design.com/" target="_top">web design in Denver</a>.</p>
         <a class="sd-btn sd-btn--ink" href="https://www.snowden-design.com/contact" target="_top">Book a free consultation
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -392,8 +393,8 @@ a{color:inherit}
   <section class="sd-cta sd-r" aria-labelledby="sd-cta-h">
     <div class="sd-cta__copy">
       <div class="sd-eyebrow sd-mono">Start a 3D project</div>
-      <h2 class="sd-h" id="sd-cta-h">Show how it's <span>built.</span></h2>
-      <p>Have a building, system or product that's hard to explain in photos? Let's turn it into a model your visitors can explore.</p>
+      <h2 class="sd-h" id="sd-cta-h">Have drawings that <span>need explaining?</span></h2>
+      <p>Send the CAD files, drawings or photos you already have, and I'll scope a model that tells the story on any screen.</p>
       <div><a class="sd-btn sd-btn--aqua" href="https://www.snowden-design.com/contact" target="_top">Book a free consultation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="sd-cta__links sd-mono">
@@ -430,7 +431,7 @@ a{color:inherit}
     var b64=document.getElementById('sd-model-src').textContent.trim();
     var html=new TextDecoder().decode(Uint8Array.from(atob(b64),function(c){return c.charCodeAt(0)}));
     var f=document.createElement('iframe');
-    f.className='sd-live__frame'; f.title='Interactive 3D building envelope section by Snowden Design for Mongrain';
+    f.className='sd-live__frame'; f.title='Interactive 3D building-envelope explorer for Mongrain';
     f.setAttribute('allow','fullscreen'); f.srcdoc=html;
     live.appendChild(f);
     document.getElementById('sd-veil').remove();
