@@ -1,32 +1,37 @@
-# Growth packages page: Wix SEO and GEO kit
+# Packages page: Wix SEO and GEO kit
 
-Page: `/packages` · Primary keyword: **website maintenance plans** · Spec: [`docs/seo-geo-strategy.md`](../../docs/seo-geo-strategy.md) (PR #5)
+Page: `/packages` · Primary keyword: **website maintenance plans** · Also carries **SEO and GEO services Denver** · Follows the copy deck (`docs/copy-deck.md`, PR #9), which supersedes the page table in PR #5.
 
-Wix puts every Embed HTML element in an iframe, and Google gives text inside it little or no credit. So this page is a hybrid: the embed carries the visuals (plans, comparison table, sample dashboard, motion), and the text that has to rank lives in native Wix elements and the page's SEO panel. Build it top to bottom like this:
+Wix puts every Embed HTML element in an iframe, and Google gives text inside it little or no credit. The embed carries the visuals (plans, comparison table, sample dashboard, motion); everything that has to rank lives in native Wix elements and the SEO panel. Build the page top to bottom:
 
-| Order | Element | Type | Content |
-| --- | --- | --- | --- |
-| 1 | Intro band | Native Wix text | H1 + answer-first intro + "Updated" line (below) |
-| 2 | Packages embed | Embed HTML | `snowden-packages.html`, full width, height from the README table |
-| 3 | FAQ | Native Wix text (or a Wix accordion) | H2 + nine questions as H3s, answers word for word (below) |
-| 4 | NAP footer | Native Wix text, site-wide | Snowden Design · Denver, Colorado · 720-340-2611 · blake@snowden-design.com |
+| Order | Block | Type |
+| --- | --- | --- |
+| 1 | Intro band: H1, intro, date line | Native |
+| 2 | Plans, comparison table, SEO/GEO and AI visuals, sample GA4 dashboard, add-ons | Embed (`snowden-packages.html`) |
+| 3 | Plan summaries: H2 + three H3s + buttons | Native |
+| 4 | SEO and GEO services in Denver (Wix anchor `seo-geo`) | Native |
+| 5 | FAQ: H2 + nine H3s | Native |
+| 6 | CTA (dark) | Native |
 
-The embed keeps its own headings for accessibility; that's fine, because only the native H1 counts for the page.
+Header, footer and NAP are the site-wide native ones from the copy deck. Type: Google Sans Flex for headings, Satoshi for body, the same as the embed.
 
-## 1. Page SEO panel (Pages › Growth packages › SEO basics)
+## SEO panel
 
 | Field | Value |
 | --- | --- |
-| URL slug | `packages` |
+| URL slug | packages |
 | Title tag | Website Maintenance Plans & Growth Packages \| Snowden Design |
 | Meta description | Monthly website care plans: hosting, updates, security, GA4 reports, SEO/GEO, Google Ads and social media management from Snowden Design in Denver, CO. |
-| Let search engines index this page | On |
-| Social share image (og:image) | 1200 × 630 branded card or a Helen Falls Lodge screenshot, under 1 MB |
-| Advanced SEO › Structured data | The JSON-LD in section 4 |
+| og:title | Website maintenance plans that keep climbing: Basecamp, Ascent, Summit |
+| og:description | Managed Wix hosting, SEO and GEO, social media, Google Ads and a monthly GA4 report from a Denver studio. Compare the three plans. |
+| og:image | `website-maintenance-plans-denver-og.jpg`, 1200 × 630, alt "Snowden Design website maintenance plans: Basecamp, Ascent and Summit" |
+| Canonical | https://www.snowden-design.com/packages |
+| Robots | index, follow |
+| Structured data | The JSON-LD at the end of this file |
 
-## 2. Native intro band (above the embed)
+## 1. Intro band [Native]
 
-Set the heading as **Heading 1** in Wix text settings. Style it small (Archivo 28 to 34px) so it reads as an intro strip above the big hero.
+H1 in Google Sans Flex 800, 28 to 34 px.
 
 **Website maintenance plans and growth packages** (H1)
 
@@ -34,7 +39,37 @@ Snowden Design's website maintenance plans keep your Wix site fast, secure and g
 
 Updated October 2026
 
-## 3. Native FAQ (below the embed)
+## 2. Embed [Embed]
+
+Paste `snowden-packages.html` into an Embed HTML element, full width. Accessible name: "Basecamp, Ascent and Summit website maintenance plans with a sample GA4 report". Heights are in the README table.
+
+## 3. Plan summaries [Native]
+
+**Compare the three website maintenance plans** (H2)
+
+**Basecamp: website care.** (H3) Managed Wix hosting, SSL, domain and email DNS, uptime and broken-link monitoring, monthly backups, 1 hour of edits a month, a quarterly technical SEO check and a monthly GA4 report. [$ ] per month.
+
+**Ascent: SEO, GEO and social.** (H3) Everything in Basecamp with 3 hours of edits, plus monthly SEO and GEO, Google Business Profile management, 1 new article a month, 8 AI-assisted social posts a month on 2 platforms, a live analytics dashboard and a quarterly strategy call. [$ ] per month.
+
+**Summit: ads and performance.** (H3) Everything in Ascent with 6 hours of edits, plus Google Ads and Meta ads management, 16 social posts a month on 3 platforms, email newsletter and lead follow-up automation, 2 new articles a month and a monthly strategy call. [$ ] per month plus ad spend.
+
+Buttons: Start with Basecamp → `/contact?plan=basecamp` · Start with Ascent → `/contact?plan=ascent` · Start with Summit → `/contact?plan=summit`
+
+## 4. SEO and GEO [Native, Wix anchor named `seo-geo`]
+
+The embed links here with "SEO and GEO services in Denver" (`/packages#seo-geo`).
+
+**SEO and GEO services in Denver** (H2)
+
+Snowden Design's SEO and GEO services help Denver and Colorado businesses get found two ways: ranking in Google search and Maps, and being cited when people ask AI assistants such as ChatGPT, Google AI Overviews, Gemini, Perplexity and Claude. Both are included in the Ascent and Summit plans.
+
+**SEO: rank where people search.** (H3) Page speed and Core Web Vitals, titles and descriptions that earn the click, crawl and index fixes, internal links, and local presence through Google Business Profile and reviews.
+
+**GEO: be the answer AI gives.** (H3) Structured data that names who you are, where you work and what you offer; clear, quotable answers to customer questions; consistent facts across the web; and a monthly check of whether AI assistants name your business.
+
+## 5. FAQ [Native]
+
+Must match the FAQPage schema word for word.
 
 **Questions about website maintenance plans** (H2)
 
@@ -72,13 +107,29 @@ Yes. Most clients start on the plan that fits their launch and move up as the si
 
 **Do you offer 3D modeling and rendering?** (H3)
 
-Yes. Snowden Design creates 3D product, architectural and environment models, photoreal renderings and turntable animations as add-on projects that can be used on your website, in ads and on social media.
+Yes. Snowden Design creates 3D product, architectural and environment models, photoreal renderings and turntable animations as add-on projects that can be used on your website, in ads and on social media. See an example of 3D architectural visualization. (link the last sentence to /3d-visualization)
 
-The second answer has price placeholders. Fill them with the same prices as the embed, or delete that question until prices are set (the schema must match the visible text).
+The cost answer has price placeholders. Fill the prices on the page, in this answer and in the schema together, or remove the question from both. The 3D answer names product and environment work; keep those words only if Snowden Design has delivered that kind of work (open question in the copy deck).
 
-## 4. Structured data (paste into Advanced SEO › Structured data markup)
+## 6. CTA [Native, dark]
 
-It references `#business`, `#website` and `about#blake`, which the Home, About and Contact pages define (spec section 5). Validate with the [Rich Results Test](https://search.google.com/test/rich-results) after publishing.
+**Pick your altitude.** (H2)
+
+Not sure which plan fits? Tell me where the site is today and where you want it in a year.
+
+Buttons: Book a free consultation → `/contact` · Call 720-340-2611 → `tel:+17203402611`
+
+## Site-level settings
+
+Robots.txt for AI crawlers, sitemap submission, the `#business` block in Custom Code and the 301s are site-wide items on the copy deck's settings table and PR #5's launch checklist. For client sites, add a GA4 "AI assistants" channel (Admin › Data display › Channel groups; copy the default group and add a channel above Referral) with this source regex: `chatgpt\.com|chat\.openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai`. Then the dashboard's AI row has data from the first month.
+
+## Embed links
+
+`/` (Home, in the breadcrumb), `/packages#seo-geo`, `/3d-visualization` and `/contact?plan=…` / `/contact?service=3d-rendering`. They only work once `/contact-1` is renamed to `/contact` (with a 301) and the 3D page is live.
+
+## Structured data (Advanced SEO › Structured data markup)
+
+This references `#business`, `#website` and `about#blake`, which the site-wide Custom Code block and the About page define. Check it with the [Rich Results Test](https://search.google.com/test/rich-results) after publishing.
 
 ```json
 {
@@ -121,12 +172,6 @@ It references `#business`, `#website` and `about#blake`, which the Home, About a
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Services",
-          "item": "https://www.snowden-design.com/services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
           "name": "Growth packages",
           "item": "https://www.snowden-design.com/packages"
         }
@@ -241,7 +286,7 @@ It references `#business`, `#website` and `about#blake`, which the Home, About a
       "provider": {
         "@id": "https://www.snowden-design.com/#business"
       },
-      "url": "https://www.snowden-design.com/work"
+      "url": "https://www.snowden-design.com/3d-visualization"
     },
     {
       "@type": "FAQPage",
@@ -316,7 +361,7 @@ It references `#business`, `#website` and `about#blake`, which the Home, About a
           "name": "Do you offer 3D modeling and rendering?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Snowden Design creates 3D product, architectural and environment models, photoreal renderings and turntable animations as add-on projects that can be used on your website, in ads and on social media."
+            "text": "Yes. Snowden Design creates 3D product, architectural and environment models, photoreal renderings and turntable animations as add-on projects that can be used on your website, in ads and on social media. See an example of 3D architectural visualization."
           }
         }
       ]
@@ -324,13 +369,3 @@ It references `#business`, `#website` and `about#blake`, which the Home, About a
   ]
 }
 ```
-
-## 5. Site-level GEO settings (once, for the whole site)
-
-- **robots.txt** (SEO & GEO dashboard › Tools and settings): allow Googlebot, Bingbot, OAI-SearchBot, GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot and Google-Extended.
-- **GA4 key events**: contact form submit, `tel:` click, `mailto:` click. These feed the "Leads" tiles in the client report.
-- **GA4 "AI assistants" channel** (Admin › Data display › Channel groups › copy the default group, add a channel above Referral): Source matches regex `chatgpt\.com|chat\.openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai`. Set this up on every client site too, so the dashboard's AI row has data from month one.
-
-## 6. Internal links in the embed
-
-The embed links to `/services`, `/seo-geo` ("SEO services in Denver"), `/work` ("3D product rendering services"), `/3d-visualization` and `/contact?plan=…`. Those slugs follow the spec's page table. Rename `/contact-1` to `/contact` with a 301, and create the other pages, before publishing, or those links will 404.
