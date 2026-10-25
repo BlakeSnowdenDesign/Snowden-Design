@@ -88,7 +88,8 @@ Used for Snowden Design's own site and any client without its own brand. Full ru
 
 ### 6. Client: Snowden Design (Blake's own site)
 
-- Live site: **www.snowden-design.com** (Wix). Pages `/projects`, `/about`, `/contact-1`.
+- **Build target (new, 25 Oct 2026): the blank Wix site "Snowden design 2".** All new Snowden Design pages go there.
+- **Content source: the existing Wix site "Snowden design"** (live at **www.snowden-design.com**, pages `/projects`, `/about`, `/contact-1`). Pull copy, projects and media from it; don't build on it.
 - Facts: Snowden Design / Blake Snowden Designs, Denver, Colorado. Tagline "Full Spectrum Strategy". Motto "If you follow the paths of the uninspired, your rewards will be commensurate." Closing line "prepare for success." Phone 970-685-8733.
 - Projects shown: Helen Falls Lodge, Shadow Creek Ranch, Schultz's Gourmet, Pasta Jay's, Mojo Broadband, Edge Internet, Apes Brain.
 - Assets: portrait `2fde66_67f00bbee6d54cc5bbece13af1434fcc~mv2.png` (only 533×528, so don't display it large); white logo `2fde66_a5f60e520e2d43c3ac2eaea2bc564bf8~mv2.png`.
@@ -151,7 +152,7 @@ Outputs: `exports/mongrain-building-wix.html` and `exports/mongrain-foundation-s
 ### 9. Open items
 
 - Harbour View: recover the six homepage section files from Blake; replace the rates hero poster with a Wix image URL; real booking link to replace "Check dates" → Rates.
-- Snowden Design: Blake to approve the home page draft copy and page list; build Work, About, Contact; merge the branch into a new `main`.
+- Snowden Design: build into the new Wix site "Snowden design 2"; Blake to approve the home page draft copy and page list; build Work, About, Contact; merge the branch into a new `main`.
 - Mongrain: review/merge PRs #1 and #2; make the Replit publish public or host the exports; French localization not complete.
 - LimeTreeSocial: empty repo, no brief recorded yet.
 
