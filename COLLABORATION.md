@@ -25,7 +25,7 @@ Two agents work in this repo. These rules keep them from overwriting each other.
 | Home (`pages/home/`) | Claude | Draft built; copy awaits Blake's approval |
 | Work (`pages/work/`) | _unassigned_ | |
 | About (`pages/about/`) | _unassigned_ | |
-| Contact (`pages/contact/`) | _unassigned_ | |
+| Contact (`pages/contact/`) | Claude | Draft built; copy awaits Blake's approval |
 
 Claim a page by editing this table in your PR before you start it.
 
