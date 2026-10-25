@@ -50,32 +50,6 @@ a{color:inherit}
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .sd-dot{width:7px;height:7px;border-radius:50%;background:var(--sd-sun);box-shadow:0 0 0 4px rgba(242,169,59,.18)}
 
-/* ============ 00 PAGE HERO ============ */
-.sd-phero{position:relative;border-radius:40px;overflow:hidden;color:#fff;
-  background:radial-gradient(120% 90% at 85% 10%,#1B5866 0%,rgba(27,88,102,0) 55%),radial-gradient(80% 70% at 0% 100%,#0F3C47 0%,rgba(15,60,71,0) 60%),var(--sd-ink);
-  box-shadow:var(--sd-shadow-lg);display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:48px;padding:120px 64px 72px;min-height:600px}
-.sd-phero__top{position:absolute;top:28px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;z-index:2}
-.sd-phero__logo{height:40px;width:auto}
-.sd-phero__crumb{color:rgba(255,255,255,.6)}
-.sd-phero__copy{position:relative;z-index:2}
-.sd-phero__pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.sd-phero__title{font-size:clamp(44px,6.8vw,96px);font-weight:800;line-height:.94;letter-spacing:-.04em}
-.sd-phero__title span{display:block}
-.sd-phero__title .sd-l2{color:var(--sd-aqua)}
-.sd-phero__sub{max-width:540px;margin:28px 0 0;font-size:19px;line-height:1.6;color:rgba(255,255,255,.8)}
-.sd-in{opacity:0;transform:translateY(30px);filter:blur(8px);animation:sdIn 1.1s var(--sd-ease) forwards}
-.sd-in--1{animation-delay:.1s}.sd-in--2{animation-delay:.22s}.sd-in--3{animation-delay:.34s}.sd-in--4{animation-delay:.46s}
-@keyframes sdIn{to{opacity:1;transform:none;filter:blur(0)}}
-
-/* Geometric signature: isometric cube tessellation, a nod to Escher */
-.sd-geo{position:absolute;top:0;right:0;bottom:0;width:58%;height:100%;pointer-events:none;
-  -webkit-mask-image:radial-gradient(75% 70% at 70% 45%,#000 20%,transparent 75%);mask-image:radial-gradient(75% 70% at 70% 45%,#000 20%,transparent 75%)}
-.sd-geo__grid{fill:none;stroke:rgba(127,224,212,.22);stroke-width:1;stroke-linejoin:round;stroke-dasharray:6000;stroke-dashoffset:6000;animation:sdDraw 4.5s .3s var(--sd-ease) forwards}
-.sd-geo__cube path{stroke:var(--sd-aqua);stroke-width:1.2;stroke-linejoin:round;opacity:0;animation:sdCube 9s calc(var(--i)*1.6s + 1.5s) ease-in-out infinite}
-.sd-geo__cube .t{fill:rgba(127,224,212,.30)}.sd-geo__cube .l{fill:rgba(22,179,166,.20)}.sd-geo__cube .r{fill:rgba(18,52,64,.55)}
-@keyframes sdDraw{to{stroke-dashoffset:0}}
-@keyframes sdCube{0%,100%{opacity:0}18%,55%{opacity:1}}
-
 /* ============ Section header ============ */
 .sd-section{padding:130px 0 0}
 .sd-head{display:grid;grid-template-columns:120px 1fr 300px;gap:32px;align-items:end;padding-bottom:34px;position:relative;margin-bottom:56px}
@@ -97,6 +71,7 @@ a{color:inherit}
 .sd-js .sd-mask.is-in{clip-path:inset(0 round 40px)}
 .sd-js .sd-mask.is-in img{transform:scale(1)}
 
+.sd-page--body>.sd-wrap>.sd-section:first-child{padding-top:24px}
 /* ============ 01 STORY ============ */
 .sd-story{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start}
 .sd-portrait{position:relative;margin:0}
@@ -182,9 +157,6 @@ a{color:inherit}
 
 /* ============ Responsive ============ */
 @media (max-width:1000px){
-  .sd-phero{grid-template-columns:1fr;padding:110px 44px 64px;min-height:0}
-  .sd-phero__top{left:44px;right:44px}
-  .sd-geo{width:100%;opacity:.6}
   .sd-head{grid-template-columns:90px 1fr}
   .sd-head__note{grid-column:2}
   .sd-story{grid-template-columns:260px 1fr;gap:44px}
@@ -205,12 +177,6 @@ a{color:inherit}
 @media (max-width:600px){
   body{font-size:16px}
   .sd-page{padding:12px 12px 24px}
-  .sd-phero{padding:96px 22px 48px;border-radius:30px}
-  .sd-phero__top{top:22px;left:22px;right:22px}
-  .sd-phero__crumb{display:none}
-  .sd-phero__logo{height:32px}
-  .sd-phero__sub{font-size:17px}
-  .sd-geo{opacity:.35}
   .sd-section{padding-top:96px}
   .sd-head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}
   .sd-idx{margin-top:0}
@@ -229,9 +195,6 @@ a{color:inherit}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .sd-in{opacity:1;transform:none;filter:none}
-  .sd-geo__grid{stroke-dashoffset:0}
-  .sd-geo__cube path{opacity:1}
   .sd-js .sd-r{opacity:1;translate:none;scale:none}
   .sd-js .sd-head::after{transform:none}
   .sd-js .sd-statement .sd-hl{background-size:100% 100%}
@@ -239,25 +202,9 @@ a{color:inherit}
 </style>
 </head>
 <body>
-<main class="sd-page">
+<main class="sd-page sd-page--body">
 <div class="sd-wrap">
 
-  <!-- 00 HERO -->
-  <section class="sd-phero" aria-label="About Snowden Design">
-    <svg class="sd-geo" viewBox="-29 -34 530 476" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="sd-geo__grid" d="M0.0 -34.0 L29.4 -17.0 L29.4 17.0 L0.0 34.0 L-29.4 17.0 L-29.4 -17.0ZM0.0 0.0L0.0 34.0M0.0 0.0L29.4 -17.0M0.0 0.0L-29.4 -17.0M58.9 -34.0 L88.3 -17.0 L88.3 17.0 L58.9 34.0 L29.4 17.0 L29.4 -17.0ZM58.9 0.0L58.9 34.0M58.9 0.0L88.3 -17.0M58.9 0.0L29.4 -17.0M117.8 -34.0 L147.2 -17.0 L147.2 17.0 L117.8 34.0 L88.3 17.0 L88.3 -17.0ZM117.8 0.0L117.8 34.0M117.8 0.0L147.2 -17.0M117.8 0.0L88.3 -17.0M176.7 -34.0 L206.1 -17.0 L206.1 17.0 L176.7 34.0 L147.2 17.0 L147.2 -17.0ZM176.7 0.0L176.7 34.0M176.7 0.0L206.1 -17.0M176.7 0.0L147.2 -17.0M235.6 -34.0 L265.0 -17.0 L265.0 17.0 L235.6 34.0 L206.1 17.0 L206.1 -17.0ZM235.6 0.0L235.6 34.0M235.6 0.0L265.0 -17.0M235.6 0.0L206.1 -17.0M294.4 -34.0 L323.9 -17.0 L323.9 17.0 L294.4 34.0 L265.0 17.0 L265.0 -17.0ZM294.4 0.0L294.4 34.0M294.4 0.0L323.9 -17.0M294.4 0.0L265.0 -17.0M353.3 -34.0 L382.8 -17.0 L382.8 17.0 L353.3 34.0 L323.9 17.0 L323.9 -17.0ZM353.3 0.0L353.3 34.0M353.3 0.0L382.8 -17.0M353.3 0.0L323.9 -17.0M412.2 -34.0 L441.7 -17.0 L441.7 17.0 L412.2 34.0 L382.8 17.0 L382.8 -17.0ZM412.2 0.0L412.2 34.0M412.2 0.0L441.7 -17.0M412.2 0.0L382.8 -17.0M471.1 -34.0 L500.6 -17.0 L500.6 17.0 L471.1 34.0 L441.7 17.0 L441.7 -17.0ZM471.1 0.0L471.1 34.0M471.1 0.0L500.6 -17.0M471.1 0.0L441.7 -17.0M29.4 17.0 L58.9 34.0 L58.9 68.0 L29.4 85.0 L0.0 68.0 L0.0 34.0ZM29.4 51.0L29.4 85.0M29.4 51.0L58.9 34.0M29.4 51.0L0.0 34.0M88.3 17.0 L117.8 34.0 L117.8 68.0 L88.3 85.0 L58.9 68.0 L58.9 34.0ZM88.3 51.0L88.3 85.0M88.3 51.0L117.8 34.0M88.3 51.0L58.9 34.0M147.2 17.0 L176.7 34.0 L176.7 68.0 L147.2 85.0 L117.8 68.0 L117.8 34.0ZM147.2 51.0L147.2 85.0M147.2 51.0L176.7 34.0M147.2 51.0L117.8 34.0M206.1 17.0 L235.6 34.0 L235.6 68.0 L206.1 85.0 L176.7 68.0 L176.7 34.0ZM206.1 51.0L206.1 85.0M206.1 51.0L235.6 34.0M206.1 51.0L176.7 34.0M265.0 17.0 L294.4 34.0 L294.4 68.0 L265.0 85.0 L235.6 68.0 L235.6 34.0ZM265.0 51.0L265.0 85.0M265.0 51.0L294.4 34.0M265.0 51.0L235.6 34.0M323.9 17.0 L353.3 34.0 L353.3 68.0 L323.9 85.0 L294.4 68.0 L294.4 34.0ZM323.9 51.0L323.9 85.0M323.9 51.0L353.3 34.0M323.9 51.0L294.4 34.0M382.8 17.0 L412.2 34.0 L412.2 68.0 L382.8 85.0 L353.3 68.0 L353.3 34.0ZM382.8 51.0L382.8 85.0M382.8 51.0L412.2 34.0M382.8 51.0L353.3 34.0M441.7 17.0 L471.1 34.0 L471.1 68.0 L441.7 85.0 L412.2 68.0 L412.2 34.0ZM441.7 51.0L441.7 85.0M441.7 51.0L471.1 34.0M441.7 51.0L412.2 34.0M500.6 17.0 L530.0 34.0 L530.0 68.0 L500.6 85.0 L471.1 68.0 L471.1 34.0ZM500.6 51.0L500.6 85.0M500.6 51.0L530.0 34.0M500.6 51.0L471.1 34.0M0.0 68.0 L29.4 85.0 L29.4 119.0 L0.0 136.0 L-29.4 119.0 L-29.4 85.0ZM0.0 102.0L0.0 136.0M0.0 102.0L29.4 85.0M0.0 102.0L-29.4 85.0M58.9 68.0 L88.3 85.0 L88.3 119.0 L58.9 136.0 L29.4 119.0 L29.4 85.0ZM58.9 102.0L58.9 136.0M58.9 102.0L88.3 85.0M58.9 102.0L29.4 85.0M117.8 68.0 L147.2 85.0 L147.2 119.0 L117.8 136.0 L88.3 119.0 L88.3 85.0ZM117.8 102.0L117.8 136.0M117.8 102.0L147.2 85.0M117.8 102.0L88.3 85.0M176.7 68.0 L206.1 85.0 L206.1 119.0 L176.7 136.0 L147.2 119.0 L147.2 85.0ZM176.7 102.0L176.7 136.0M176.7 102.0L206.1 85.0M176.7 102.0L147.2 85.0M235.6 68.0 L265.0 85.0 L265.0 119.0 L235.6 136.0 L206.1 119.0 L206.1 85.0ZM235.6 102.0L235.6 136.0M235.6 102.0L265.0 85.0M235.6 102.0L206.1 85.0M294.4 68.0 L323.9 85.0 L323.9 119.0 L294.4 136.0 L265.0 119.0 L265.0 85.0ZM294.4 102.0L294.4 136.0M294.4 102.0L323.9 85.0M294.4 102.0L265.0 85.0M353.3 68.0 L382.8 85.0 L382.8 119.0 L353.3 136.0 L323.9 119.0 L323.9 85.0ZM353.3 102.0L353.3 136.0M353.3 102.0L382.8 85.0M353.3 102.0L323.9 85.0M412.2 68.0 L441.7 85.0 L441.7 119.0 L412.2 136.0 L382.8 119.0 L382.8 85.0ZM412.2 102.0L412.2 136.0M412.2 102.0L441.7 85.0M412.2 102.0L382.8 85.0M471.1 68.0 L500.6 85.0 L500.6 119.0 L471.1 136.0 L441.7 119.0 L441.7 85.0ZM471.1 102.0L471.1 136.0M471.1 102.0L500.6 85.0M471.1 102.0L441.7 85.0M29.4 119.0 L58.9 136.0 L58.9 170.0 L29.4 187.0 L0.0 170.0 L0.0 136.0ZM29.4 153.0L29.4 187.0M29.4 153.0L58.9 136.0M29.4 153.0L0.0 136.0M88.3 119.0 L117.8 136.0 L117.8 170.0 L88.3 187.0 L58.9 170.0 L58.9 136.0ZM88.3 153.0L88.3 187.0M88.3 153.0L117.8 136.0M88.3 153.0L58.9 136.0M147.2 119.0 L176.7 136.0 L176.7 170.0 L147.2 187.0 L117.8 170.0 L117.8 136.0ZM147.2 153.0L147.2 187.0M147.2 153.0L176.7 136.0M147.2 153.0L117.8 136.0M206.1 119.0 L235.6 136.0 L235.6 170.0 L206.1 187.0 L176.7 170.0 L176.7 136.0ZM206.1 153.0L206.1 187.0M206.1 153.0L235.6 136.0M206.1 153.0L176.7 136.0M265.0 119.0 L294.4 136.0 L294.4 170.0 L265.0 187.0 L235.6 170.0 L235.6 136.0ZM265.0 153.0L265.0 187.0M265.0 153.0L294.4 136.0M265.0 153.0L235.6 136.0M323.9 119.0 L353.3 136.0 L353.3 170.0 L323.9 187.0 L294.4 170.0 L294.4 136.0ZM323.9 153.0L323.9 187.0M323.9 153.0L353.3 136.0M323.9 153.0L294.4 136.0M382.8 119.0 L412.2 136.0 L412.2 170.0 L382.8 187.0 L353.3 170.0 L353.3 136.0ZM382.8 153.0L382.8 187.0M382.8 153.0L412.2 136.0M382.8 153.0L353.3 136.0M441.7 119.0 L471.1 136.0 L471.1 170.0 L441.7 187.0 L412.2 170.0 L412.2 136.0ZM441.7 153.0L441.7 187.0M441.7 153.0L471.1 136.0M441.7 153.0L412.2 136.0M500.6 119.0 L530.0 136.0 L530.0 170.0 L500.6 187.0 L471.1 170.0 L471.1 136.0ZM500.6 153.0L500.6 187.0M500.6 153.0L530.0 136.0M500.6 153.0L471.1 136.0M0.0 170.0 L29.4 187.0 L29.4 221.0 L0.0 238.0 L-29.4 221.0 L-29.4 187.0ZM0.0 204.0L0.0 238.0M0.0 204.0L29.4 187.0M0.0 204.0L-29.4 187.0M58.9 170.0 L88.3 187.0 L88.3 221.0 L58.9 238.0 L29.4 221.0 L29.4 187.0ZM58.9 204.0L58.9 238.0M58.9 204.0L88.3 187.0M58.9 204.0L29.4 187.0M117.8 170.0 L147.2 187.0 L147.2 221.0 L117.8 238.0 L88.3 221.0 L88.3 187.0ZM117.8 204.0L117.8 238.0M117.8 204.0L147.2 187.0M117.8 204.0L88.3 187.0M176.7 170.0 L206.1 187.0 L206.1 221.0 L176.7 238.0 L147.2 221.0 L147.2 187.0ZM176.7 204.0L176.7 238.0M176.7 204.0L206.1 187.0M176.7 204.0L147.2 187.0M235.6 170.0 L265.0 187.0 L265.0 221.0 L235.6 238.0 L206.1 221.0 L206.1 187.0ZM235.6 204.0L235.6 238.0M235.6 204.0L265.0 187.0M235.6 204.0L206.1 187.0M294.4 170.0 L323.9 187.0 L323.9 221.0 L294.4 238.0 L265.0 221.0 L265.0 187.0ZM294.4 204.0L294.4 238.0M294.4 204.0L323.9 187.0M294.4 204.0L265.0 187.0M353.3 170.0 L382.8 187.0 L382.8 221.0 L353.3 238.0 L323.9 221.0 L323.9 187.0ZM353.3 204.0L353.3 238.0M353.3 204.0L382.8 187.0M353.3 204.0L323.9 187.0M412.2 170.0 L441.7 187.0 L441.7 221.0 L412.2 238.0 L382.8 221.0 L382.8 187.0ZM412.2 204.0L412.2 238.0M412.2 204.0L441.7 187.0M412.2 204.0L382.8 187.0M471.1 170.0 L500.6 187.0 L500.6 221.0 L471.1 238.0 L441.7 221.0 L441.7 187.0ZM471.1 204.0L471.1 238.0M471.1 204.0L500.6 187.0M471.1 204.0L441.7 187.0M29.4 221.0 L58.9 238.0 L58.9 272.0 L29.4 289.0 L0.0 272.0 L0.0 238.0ZM29.4 255.0L29.4 289.0M29.4 255.0L58.9 238.0M29.4 255.0L0.0 238.0M88.3 221.0 L117.8 238.0 L117.8 272.0 L88.3 289.0 L58.9 272.0 L58.9 238.0ZM88.3 255.0L88.3 289.0M88.3 255.0L117.8 238.0M88.3 255.0L58.9 238.0M147.2 221.0 L176.7 238.0 L176.7 272.0 L147.2 289.0 L117.8 272.0 L117.8 238.0ZM147.2 255.0L147.2 289.0M147.2 255.0L176.7 238.0M147.2 255.0L117.8 238.0M206.1 221.0 L235.6 238.0 L235.6 272.0 L206.1 289.0 L176.7 272.0 L176.7 238.0ZM206.1 255.0L206.1 289.0M206.1 255.0L235.6 238.0M206.1 255.0L176.7 238.0M265.0 221.0 L294.4 238.0 L294.4 272.0 L265.0 289.0 L235.6 272.0 L235.6 238.0ZM265.0 255.0L265.0 289.0M265.0 255.0L294.4 238.0M265.0 255.0L235.6 238.0M323.9 221.0 L353.3 238.0 L353.3 272.0 L323.9 289.0 L294.4 272.0 L294.4 238.0ZM323.9 255.0L323.9 289.0M323.9 255.0L353.3 238.0M323.9 255.0L294.4 238.0M382.8 221.0 L412.2 238.0 L412.2 272.0 L382.8 289.0 L353.3 272.0 L353.3 238.0ZM382.8 255.0L382.8 289.0M382.8 255.0L412.2 238.0M382.8 255.0L353.3 238.0M441.7 221.0 L471.1 238.0 L471.1 272.0 L441.7 289.0 L412.2 272.0 L412.2 238.0ZM441.7 255.0L441.7 289.0M441.7 255.0L471.1 238.0M441.7 255.0L412.2 238.0M500.6 221.0 L530.0 238.0 L530.0 272.0 L500.6 289.0 L471.1 272.0 L471.1 238.0ZM500.6 255.0L500.6 289.0M500.6 255.0L530.0 238.0M500.6 255.0L471.1 238.0M0.0 272.0 L29.4 289.0 L29.4 323.0 L0.0 340.0 L-29.4 323.0 L-29.4 289.0ZM0.0 306.0L0.0 340.0M0.0 306.0L29.4 289.0M0.0 306.0L-29.4 289.0M58.9 272.0 L88.3 289.0 L88.3 323.0 L58.9 340.0 L29.4 323.0 L29.4 289.0ZM58.9 306.0L58.9 340.0M58.9 306.0L88.3 289.0M58.9 306.0L29.4 289.0M117.8 272.0 L147.2 289.0 L147.2 323.0 L117.8 340.0 L88.3 323.0 L88.3 289.0ZM117.8 306.0L117.8 340.0M117.8 306.0L147.2 289.0M117.8 306.0L88.3 289.0M176.7 272.0 L206.1 289.0 L206.1 323.0 L176.7 340.0 L147.2 323.0 L147.2 289.0ZM176.7 306.0L176.7 340.0M176.7 306.0L206.1 289.0M176.7 306.0L147.2 289.0M235.6 272.0 L265.0 289.0 L265.0 323.0 L235.6 340.0 L206.1 323.0 L206.1 289.0ZM235.6 306.0L235.6 340.0M235.6 306.0L265.0 289.0M235.6 306.0L206.1 289.0M294.4 272.0 L323.9 289.0 L323.9 323.0 L294.4 340.0 L265.0 323.0 L265.0 289.0ZM294.4 306.0L294.4 340.0M294.4 306.0L323.9 289.0M294.4 306.0L265.0 289.0M353.3 272.0 L382.8 289.0 L382.8 323.0 L353.3 340.0 L323.9 323.0 L323.9 289.0ZM353.3 306.0L353.3 340.0M353.3 306.0L382.8 289.0M353.3 306.0L323.9 289.0M412.2 272.0 L441.7 289.0 L441.7 323.0 L412.2 340.0 L382.8 323.0 L382.8 289.0ZM412.2 306.0L412.2 340.0M412.2 306.0L441.7 289.0M412.2 306.0L382.8 289.0M471.1 272.0 L500.6 289.0 L500.6 323.0 L471.1 340.0 L441.7 323.0 L441.7 289.0ZM471.1 306.0L471.1 340.0M471.1 306.0L500.6 289.0M471.1 306.0L441.7 289.0M29.4 323.0 L58.9 340.0 L58.9 374.0 L29.4 391.0 L0.0 374.0 L0.0 340.0ZM29.4 357.0L29.4 391.0M29.4 357.0L58.9 340.0M29.4 357.0L0.0 340.0M88.3 323.0 L117.8 340.0 L117.8 374.0 L88.3 391.0 L58.9 374.0 L58.9 340.0ZM88.3 357.0L88.3 391.0M88.3 357.0L117.8 340.0M88.3 357.0L58.9 340.0M147.2 323.0 L176.7 340.0 L176.7 374.0 L147.2 391.0 L117.8 374.0 L117.8 340.0ZM147.2 357.0L147.2 391.0M147.2 357.0L176.7 340.0M147.2 357.0L117.8 340.0M206.1 323.0 L235.6 340.0 L235.6 374.0 L206.1 391.0 L176.7 374.0 L176.7 340.0ZM206.1 357.0L206.1 391.0M206.1 357.0L235.6 340.0M206.1 357.0L176.7 340.0M265.0 323.0 L294.4 340.0 L294.4 374.0 L265.0 391.0 L235.6 374.0 L235.6 340.0ZM265.0 357.0L265.0 391.0M265.0 357.0L294.4 340.0M265.0 357.0L235.6 340.0M323.9 323.0 L353.3 340.0 L353.3 374.0 L323.9 391.0 L294.4 374.0 L294.4 340.0ZM323.9 357.0L323.9 391.0M323.9 357.0L353.3 340.0M323.9 357.0L294.4 340.0M382.8 323.0 L412.2 340.0 L412.2 374.0 L382.8 391.0 L353.3 374.0 L353.3 340.0ZM382.8 357.0L382.8 391.0M382.8 357.0L412.2 340.0M382.8 357.0L353.3 340.0M441.7 323.0 L471.1 340.0 L471.1 374.0 L441.7 391.0 L412.2 374.0 L412.2 340.0ZM441.7 357.0L441.7 391.0M441.7 357.0L471.1 340.0M441.7 357.0L412.2 340.0M500.6 323.0 L530.0 340.0 L530.0 374.0 L500.6 391.0 L471.1 374.0 L471.1 340.0ZM500.6 357.0L500.6 391.0M500.6 357.0L530.0 340.0M500.6 357.0L471.1 340.0M0.0 374.0 L29.4 391.0 L29.4 425.0 L0.0 442.0 L-29.4 425.0 L-29.4 391.0ZM0.0 408.0L0.0 442.0M0.0 408.0L29.4 391.0M0.0 408.0L-29.4 391.0M58.9 374.0 L88.3 391.0 L88.3 425.0 L58.9 442.0 L29.4 425.0 L29.4 391.0ZM58.9 408.0L58.9 442.0M58.9 408.0L88.3 391.0M58.9 408.0L29.4 391.0M117.8 374.0 L147.2 391.0 L147.2 425.0 L117.8 442.0 L88.3 425.0 L88.3 391.0ZM117.8 408.0L117.8 442.0M117.8 408.0L147.2 391.0M117.8 408.0L88.3 391.0M176.7 374.0 L206.1 391.0 L206.1 425.0 L176.7 442.0 L147.2 425.0 L147.2 391.0ZM176.7 408.0L176.7 442.0M176.7 408.0L206.1 391.0M176.7 408.0L147.2 391.0M235.6 374.0 L265.0 391.0 L265.0 425.0 L235.6 442.0 L206.1 425.0 L206.1 391.0ZM235.6 408.0L235.6 442.0M235.6 408.0L265.0 391.0M235.6 408.0L206.1 391.0M294.4 374.0 L323.9 391.0 L323.9 425.0 L294.4 442.0 L265.0 425.0 L265.0 391.0ZM294.4 408.0L294.4 442.0M294.4 408.0L323.9 391.0M294.4 408.0L265.0 391.0M353.3 374.0 L382.8 391.0 L382.8 425.0 L353.3 442.0 L323.9 425.0 L323.9 391.0ZM353.3 408.0L353.3 442.0M353.3 408.0L382.8 391.0M353.3 408.0L323.9 391.0M412.2 374.0 L441.7 391.0 L441.7 425.0 L412.2 442.0 L382.8 425.0 L382.8 391.0ZM412.2 408.0L412.2 442.0M412.2 408.0L441.7 391.0M412.2 408.0L382.8 391.0M471.1 374.0 L500.6 391.0 L500.6 425.0 L471.1 442.0 L441.7 425.0 L441.7 391.0ZM471.1 408.0L471.1 442.0M471.1 408.0L500.6 391.0M471.1 408.0L441.7 391.0"/><g class="sd-geo__cube" style="--i:0"><path class="t" d="M176.7 68.0L206.1 85.0L176.7 102.0L147.2 85.0Z"/><path class="l" d="M147.2 85.0L176.7 102.0L176.7 136.0L147.2 119.0Z"/><path class="r" d="M176.7 102.0L206.1 85.0L206.1 119.0L176.7 136.0Z"/></g><g class="sd-geo__cube" style="--i:1"><path class="t" d="M323.9 119.0L353.3 136.0L323.9 153.0L294.4 136.0Z"/><path class="l" d="M294.4 136.0L323.9 153.0L323.9 187.0L294.4 170.0Z"/><path class="r" d="M323.9 153.0L353.3 136.0L353.3 170.0L323.9 187.0Z"/></g><g class="sd-geo__cube" style="--i:2"><path class="t" d="M265.0 221.0L294.4 238.0L265.0 255.0L235.6 238.0Z"/><path class="l" d="M235.6 238.0L265.0 255.0L265.0 289.0L235.6 272.0Z"/><path class="r" d="M265.0 255.0L294.4 238.0L294.4 272.0L265.0 289.0Z"/></g><g class="sd-geo__cube" style="--i:3"><path class="t" d="M353.3 272.0L382.8 289.0L353.3 306.0L323.9 289.0Z"/><path class="l" d="M323.9 289.0L353.3 306.0L353.3 340.0L323.9 323.0Z"/><path class="r" d="M353.3 306.0L382.8 289.0L382.8 323.0L353.3 340.0Z"/></g><g class="sd-geo__cube" style="--i:4"><path class="t" d="M117.8 272.0L147.2 289.0L117.8 306.0L88.3 289.0Z"/><path class="l" d="M88.3 289.0L117.8 306.0L117.8 340.0L88.3 323.0Z"/><path class="r" d="M117.8 306.0L147.2 289.0L147.2 323.0L117.8 340.0Z"/></g></svg>
-    <div class="sd-phero__top sd-in sd-in--1">
-      <a href="https://www.snowden-design.com/" target="_top"><img class="sd-phero__logo" src="https://static.wixstatic.com/media/2fde66_a5f60e520e2d43c3ac2eaea2bc564bf8~mv2.png/v1/fill/w_458,h_157,al_c,q_90,enc_auto/sd-logo-white.png" alt="Snowden Design home" width="117" height="40"></a>
-      <span class="sd-label sd-phero__crumb">Studio / About</span>
-    </div>
-    <div class="sd-phero__copy">
-      <div class="sd-phero__pills sd-in sd-in--1">
-        <span class="sd-pill sd-label"><span class="sd-dot" aria-hidden="true"></span>About the studio</span>
-        <span class="sd-pill sd-label">Denver, Colorado</span>
-      </div>
-      <h1 class="sd-h sd-phero__title sd-in sd-in--2"><span>Where art meets</span><span class="sd-l2">technology.</span></h1>
-      <p class="sd-phero__sub sd-in sd-in--3">Snowden Design is Blake Snowden, a designer and developer in Denver, Colorado. Strategy, design, media and code come from the same desk, so nothing gets lost between them.</p>
-    </div>
-  </section>
 
   <!-- 01 STORY -->
   <section class="sd-section" aria-labelledby="sd-story-h">
@@ -268,12 +215,12 @@ a{color:inherit}
     </div>
     <div class="sd-story">
       <figure class="sd-portrait sd-r">
-        <div class="sd-portrait__img"><img src="https://static.wixstatic.com/media/2fde66_67f00bbee6d54cc5bbece13af1434fcc~mv2.png/v1/fill/w_520,h_520,al_c,q_90,enc_auto/blake-snowden.png" alt="Portrait of Blake Snowden, designer and developer at Snowden Design in Denver" width="340" height="340" loading="lazy"></div>
+        <div class="sd-portrait__img"><img src="https://static.wixstatic.com/media/2fde66_67f00bbee6d54cc5bbece13af1434fcc~mv2.png/v1/fill/w_520,h_520,al_c,q_90,enc_auto/blake-snowden.png" alt="Blake Snowden, Denver web developer and 3D artist at Snowden Design" width="340" height="340" loading="lazy"></div>
         <figcaption class="sd-label"><span class="sd-dot" aria-hidden="true"></span>Blake Snowden, founder</figcaption>
       </figure>
       <div class="sd-copy sd-r" style="--d:.1s">
         <h3 class="sd-h">Hi, I'm Blake.</h3>
-        <p>I'm the designer and developer behind Snowden Design. I build websites that blend art and technology into interactive, engaging experiences, and I make much of the content that fills them: graphics, digital art, video and drone footage.</p>
+        <p>I'm a Denver web developer and 3D artist, and the designer behind Snowden Design. I build Wix websites that blend art and technology into interactive, engaging experiences, render products in 3D, and make much of the content that fills them: graphics, digital art, video and drone footage.</p>
         <p>I pair the creative work with <strong>full-spectrum business development strategy for B2B and B2C clients</strong>, backed by a deep technical understanding of the nuances it takes to close sophisticated, high-value deals.</p>
         <p>Working this way means the person planning your site is the one designing it, filming it and building it. The idea survives all the way to launch, and you always know who is accountable for it.</p>
         <ul class="sd-facts">
