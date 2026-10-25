@@ -6,27 +6,29 @@
 <title>About | Snowden Design, Denver, Colorado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wdth,wght@6..144,25..151,100..1000&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900,301,401,701&display=swap" rel="stylesheet">
 <style>
 /* Snowden Design / About: Wix Embed HTML. All classes prefixed .sd-. Shared rules match pages/home. */
 :root{
   --sd-ink:#0A1D26; --sd-ink-2:#123440; --sd-aqua:#7FE0D4; --sd-teal:#16B3A6;
   --sd-sun:#F2A93B; --sd-paper:#FFFFFF; --sd-mist:#EEF3F4; --sd-line:rgba(10,29,38,.12);
-  --sd-muted:#4A5F68;
+  --sd-muted:#4A5F68; --sd-snow:#FAFCFC;
+  --sd-display:"Google Sans Flex","Satoshi",system-ui,sans-serif; --sd-text:"Satoshi",system-ui,-apple-system,"Segoe UI",sans-serif;
   --sd-ease:cubic-bezier(.2,.8,.2,1);
   --sd-shadow:0 1px 2px rgba(10,29,38,.06),0 2px 6px rgba(10,29,38,.05),0 24px 60px -18px rgba(10,29,38,.22);
   --sd-shadow-lg:0 2px 4px rgba(10,29,38,.08),0 8px 18px rgba(10,29,38,.08),0 44px 90px -24px rgba(10,29,38,.38);
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{background:linear-gradient(180deg,#F7FAFA 0%,#E7EFF1 100%);color:var(--sd-ink);
-  font-family:"Archivo",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--sd-snow);color:var(--sd-ink);
+  font-family:var(--sd-text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
 .sd-page{padding:24px 24px 0}
 .sd-wrap{max-width:1240px;margin:0 auto}
-.sd-mono{font-family:"IBM Plex Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:500}
-.sd-h{font-family:"Archivo",sans-serif;font-stretch:118%;font-weight:750;letter-spacing:-.02em;line-height:1.02;margin:0}
+.sd-label{font-family:var(--sd-text);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700}
+.sd-h{font-family:var(--sd-display);font-weight:700;font-variation-settings:"opsz" 96;letter-spacing:-.03em;line-height:1.02;margin:0}
 .sd-accent{color:var(--sd-teal)}
 :focus-visible{outline:3px solid var(--sd-teal);outline-offset:3px;border-radius:8px}
 
@@ -51,32 +53,28 @@ a{color:inherit}
 /* ============ 00 PAGE HERO ============ */
 .sd-phero{position:relative;border-radius:40px;overflow:hidden;color:#fff;
   background:radial-gradient(120% 90% at 85% 10%,#1B5866 0%,rgba(27,88,102,0) 55%),radial-gradient(80% 70% at 0% 100%,#0F3C47 0%,rgba(15,60,71,0) 60%),var(--sd-ink);
-  box-shadow:var(--sd-shadow-lg);display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:48px;padding:120px 64px 64px;min-height:640px}
-.sd-phero__grid{position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:linear-gradient(rgba(127,224,212,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,224,212,.07) 1px,transparent 1px);
-  background-size:64px 64px;-webkit-mask-image:radial-gradient(90% 80% at 70% 30%,#000 30%,transparent 80%);mask-image:radial-gradient(90% 80% at 70% 30%,#000 30%,transparent 80%)}
+  box-shadow:var(--sd-shadow-lg);display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:48px;padding:120px 64px 72px;min-height:600px}
 .sd-phero__top{position:absolute;top:28px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;z-index:2}
 .sd-phero__logo{height:40px;width:auto}
 .sd-phero__crumb{color:rgba(255,255,255,.6)}
 .sd-phero__copy{position:relative;z-index:2}
 .sd-phero__pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.sd-phero__title{font-size:clamp(44px,6.8vw,96px);font-weight:800;line-height:.94;letter-spacing:-.035em}
+.sd-phero__title{font-size:clamp(44px,6.8vw,96px);font-weight:800;line-height:.94;letter-spacing:-.04em}
 .sd-phero__title span{display:block}
 .sd-phero__title .sd-l2{color:var(--sd-aqua)}
-.sd-phero__sub{max-width:540px;margin:28px 0 0;font-size:19px;line-height:1.6;color:rgba(255,255,255,.78)}
+.sd-phero__sub{max-width:540px;margin:28px 0 0;font-size:19px;line-height:1.6;color:rgba(255,255,255,.8)}
 .sd-in{opacity:0;transform:translateY(30px);filter:blur(8px);animation:sdIn 1.1s var(--sd-ease) forwards}
 .sd-in--1{animation-delay:.1s}.sd-in--2{animation-delay:.22s}.sd-in--3{animation-delay:.34s}.sd-in--4{animation-delay:.46s}
 @keyframes sdIn{to{opacity:1;transform:none;filter:blur(0)}}
 
-/* Hero portrait */
-.sd-hport{position:relative;z-index:2;justify-self:end;width:100%;max-width:420px}
-.sd-hport__frame{border-radius:32px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,#1B4B57,#0E2F39);border:1px solid rgba(255,255,255,.14);box-shadow:0 2px 4px rgba(0,0,0,.25),0 40px 80px -24px rgba(0,0,0,.6)}
-.sd-hport__frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%;animation:kenBurns 22s ease-out both}
-@keyframes kenBurns{from{transform:scale(1.16)}to{transform:scale(1)}}
-.sd-hport__tag{position:absolute;left:-28px;bottom:36px;background:var(--sd-paper);color:var(--sd-ink);border-radius:22px;padding:16px 20px;box-shadow:var(--sd-shadow-lg);animation:sdBob 6s ease-in-out infinite}
-.sd-hport__tag .sd-mono{display:flex;align-items:center;gap:8px;color:var(--sd-muted);margin-bottom:6px}
-.sd-hport__tag b{display:block;font-stretch:118%;font-weight:750;font-size:22px;line-height:1.1}
-@keyframes sdBob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+/* Geometric signature: isometric cube tessellation, a nod to Escher */
+.sd-geo{position:absolute;top:0;right:0;bottom:0;width:58%;height:100%;pointer-events:none;
+  -webkit-mask-image:radial-gradient(75% 70% at 70% 45%,#000 20%,transparent 75%);mask-image:radial-gradient(75% 70% at 70% 45%,#000 20%,transparent 75%)}
+.sd-geo__grid{fill:none;stroke:rgba(127,224,212,.22);stroke-width:1;stroke-linejoin:round;stroke-dasharray:6000;stroke-dashoffset:6000;animation:sdDraw 4.5s .3s var(--sd-ease) forwards}
+.sd-geo__cube path{stroke:var(--sd-aqua);stroke-width:1.2;stroke-linejoin:round;opacity:0;animation:sdCube 9s calc(var(--i)*1.6s + 1.5s) ease-in-out infinite}
+.sd-geo__cube .t{fill:rgba(127,224,212,.30)}.sd-geo__cube .l{fill:rgba(22,179,166,.20)}.sd-geo__cube .r{fill:rgba(18,52,64,.55)}
+@keyframes sdDraw{to{stroke-dashoffset:0}}
+@keyframes sdCube{0%,100%{opacity:0}18%,55%{opacity:1}}
 
 /* ============ Section header ============ */
 .sd-section{padding:130px 0 0}
@@ -100,87 +98,70 @@ a{color:inherit}
 .sd-js .sd-mask.is-in img{transform:scale(1)}
 
 /* ============ 01 STORY ============ */
-.sd-story{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
-.sd-panel{background:var(--sd-paper);border-radius:30px;padding:48px;box-shadow:var(--sd-shadow)}
-.sd-panel h3{font-size:clamp(30px,3.4vw,46px);margin-bottom:22px}
-.sd-panel p{margin:0 0 18px;color:var(--sd-muted);font-size:18px}
-.sd-panel p:last-child{margin-bottom:0}
-.sd-facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
-.sd-fact{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:baseline;padding:24px 28px;border-radius:22px;background:var(--sd-paper);box-shadow:var(--sd-shadow);transition:transform .5s var(--sd-ease)}
-.sd-fact:hover{transform:translateX(6px)}
-.sd-fact .sd-mono{color:var(--sd-teal)}
-.sd-fact b{font-stretch:118%;font-weight:700;font-size:19px;line-height:1.3}
-.sd-fact--dark{background:var(--sd-ink);color:#fff;position:relative;overflow:hidden}
-.sd-fact--dark::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 100% 0%,rgba(22,179,166,.32),transparent 60%)}
-.sd-fact--dark>*{position:relative}
-.sd-fact--dark .sd-mono{color:var(--sd-aqua)}
+.sd-story{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start}
+.sd-portrait{position:relative;margin:0}
+.sd-portrait__img{border-radius:28px;overflow:hidden;aspect-ratio:1/1;background:var(--sd-mist);box-shadow:var(--sd-shadow)}
+.sd-portrait__img img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.sd-portrait figcaption{display:flex;align-items:center;gap:8px;margin-top:16px;color:var(--sd-muted)}
+.sd-copy h3{font-size:clamp(32px,3.8vw,52px);margin-bottom:24px}
+.sd-copy p{margin:0 0 18px;color:var(--sd-muted);font-size:18px;max-width:680px}
+.sd-copy p strong{color:var(--sd-ink);font-weight:700}
+.sd-facts{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px}
+.sd-fact{padding-top:18px;border-top:1.5px solid var(--sd-ink)}
+.sd-fact .sd-label{display:block;color:var(--sd-teal);margin-bottom:8px}
+.sd-fact b{font-family:var(--sd-display);font-weight:700;font-size:18px;line-height:1.3;display:block}
 
 /* ============ Statement ============ */
 .sd-statement{padding:150px 0 20px}
-.sd-statement p{margin:0;font-stretch:118%;font-weight:700;font-size:clamp(34px,5.4vw,76px);line-height:1.06;letter-spacing:-.03em;max-width:1120px}
+.sd-statement p{margin:0;font-family:var(--sd-display);font-weight:700;font-size:clamp(34px,5.4vw,76px);line-height:1.06;letter-spacing:-.03em;max-width:1120px}
 .sd-hl{background:linear-gradient(transparent 58%,rgba(127,224,212,.75) 58%,rgba(127,224,212,.75) 92%,transparent 92%) no-repeat left/100% 100%;transition:background-size 1.4s var(--sd-ease) .35s}
 .sd-js .sd-statement:not(.is-in) .sd-hl{background-size:0% 100%}
-.sd-statement .sd-mono{display:block;margin-top:34px;color:var(--sd-muted)}
+.sd-statement .sd-label{display:block;margin-top:34px;color:var(--sd-muted)}
 
-/* ============ 02 DISCIPLINES ============ */
-.sd-disc{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.sd-dcard{position:relative;background:var(--sd-paper);border-radius:28px;padding:30px 28px 32px;box-shadow:var(--sd-shadow);
-  transition:transform .6s var(--sd-ease),box-shadow .6s var(--sd-ease),background .5s var(--sd-ease),color .5s var(--sd-ease)}
-.sd-dcard:hover{transform:translateY(-8px);box-shadow:var(--sd-shadow-lg);background:var(--sd-ink);color:#fff}
-.sd-dcard__ico{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--sd-mist);color:var(--sd-teal);margin-bottom:30px;transition:transform .6s var(--sd-ease),background .5s,color .5s}
-.sd-dcard:hover .sd-dcard__ico{transform:rotate(-8deg) scale(1.1);background:rgba(127,224,212,.14);color:var(--sd-aqua)}
-.sd-dcard__ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.sd-dcard__n{position:absolute;top:30px;right:28px;color:var(--sd-muted);transition:color .5s}
-.sd-dcard:hover .sd-dcard__n{color:rgba(255,255,255,.55)}
-.sd-dcard h3{font-size:23px;line-height:1.12;margin-bottom:16px}
-.sd-dcard ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.sd-dcard li{display:flex;align-items:center;gap:10px;font-size:15.5px;color:var(--sd-muted);transition:color .5s}
-.sd-dcard li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--sd-teal);transition:background .5s}
-.sd-dcard:hover li{color:rgba(255,255,255,.78)}
-.sd-dcard:hover li::before{background:var(--sd-aqua)}
+/* ============ 02 SERVICES: open grid, no cards ============ */
+.sd-svc{display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px}
+.sd-svc__col{position:relative;padding-top:26px}
+.sd-svc__col::before{content:"";position:absolute;top:0;left:0;right:0;height:1.5px;background:var(--sd-line)}
+.sd-svc__col::after{content:"";position:absolute;top:0;left:0;height:1.5px;width:100%;background:var(--sd-teal);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--sd-ease)}
+.sd-svc__col:hover::after,.sd-svc__col:focus-within::after{transform:scaleX(1)}
+.sd-svc__ico{width:52px;height:52px;border-radius:20px;display:grid;place-items:center;background:var(--sd-mist);color:var(--sd-teal);margin-bottom:24px;transition:transform .6s var(--sd-ease),background .5s,color .5s}
+.sd-svc__col:hover .sd-svc__ico{transform:rotate(-8deg) scale(1.08);background:var(--sd-ink);color:var(--sd-aqua)}
+.sd-svc__ico svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sd-svc h3{font-size:24px;line-height:1.12;margin-bottom:6px}
+.sd-svc__k{display:block;color:var(--sd-muted);margin-bottom:18px}
+.sd-svc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.sd-svc li{display:flex;gap:10px;font-size:16px;line-height:1.4}
+.sd-svc li::before{content:"";flex:none;margin-top:8px;width:6px;height:6px;border-radius:50%;background:var(--sd-teal)}
 
-/* ============ 03 PRINCIPLES ============ */
-.sd-prin{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:p}
-.sd-pcard{position:relative;border-radius:30px;padding:40px 36px 38px;background:var(--sd-paper);box-shadow:var(--sd-shadow);overflow:hidden;isolation:isolate;min-height:300px;display:flex;flex-direction:column}
-.sd-pcard::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sd-ink);clip-path:circle(0% at 100% 0%);transition:clip-path .9s var(--sd-ease)}
-.sd-pcard:hover::before{clip-path:circle(150% at 100% 0%)}
-.sd-pcard:hover{color:#fff}
-.sd-pcard__big{font-stretch:118%;font-weight:800;font-size:clamp(44px,4.6vw,64px);line-height:.95;letter-spacing:-.035em;margin:0 0 auto;padding-bottom:40px}
-.sd-pcard__big span{color:var(--sd-teal);transition:color .5s}
-.sd-pcard:hover .sd-pcard__big span{color:var(--sd-aqua)}
-.sd-pcard p{margin:0;color:var(--sd-muted);transition:color .5s}
-.sd-pcard:hover p{color:rgba(255,255,255,.74)}
-.sd-pcard .sd-mono{display:block;margin-bottom:14px;color:var(--sd-muted);transition:color .5s}
-.sd-pcard:hover .sd-mono{color:var(--sd-aqua)}
+/* ============ 03 PRINCIPLES: text-led ============ */
+.sd-prin{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1.5px solid var(--sd-ink)}
+.sd-pcol{padding:34px 34px 10px 0}
+.sd-pcol+.sd-pcol{padding-left:34px;border-left:1px solid var(--sd-line)}
+.sd-pcol .sd-label{display:block;color:var(--sd-muted);margin-bottom:22px}
+.sd-pcol__big{font-family:var(--sd-display);font-weight:800;font-size:clamp(40px,4.4vw,62px);line-height:.95;letter-spacing:-.04em;margin:0 0 22px}
+.sd-pcol__big span{color:var(--sd-teal)}
+.sd-pcol p{margin:0;color:var(--sd-muted);max-width:340px}
 
 /* ============ 04 CLIENTS ============ */
 .sd-clients{list-style:none;margin:0;padding:0;border-top:1px solid var(--sd-line)}
 .sd-client a{position:relative;display:grid;grid-template-columns:80px 1fr auto 40px;gap:24px;align-items:center;padding:26px 8px;border-bottom:1px solid var(--sd-line);text-decoration:none;isolation:isolate;transition:color .5s var(--sd-ease),padding .5s var(--sd-ease)}
-.sd-client a::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:22px;background:var(--sd-ink);transform:scaleY(0);transition:transform .55s var(--sd-ease)}
-.sd-client a:hover{color:#fff;padding-left:28px;padding-right:28px}
-.sd-client a:hover::before{transform:scaleY(1)}
+.sd-client a::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:20px;background:var(--sd-ink);transform:scaleY(0);transition:transform .55s var(--sd-ease)}
+.sd-client a:hover,.sd-client a:focus-visible{color:#fff;padding-left:28px;padding-right:28px}
+.sd-client a:hover::before,.sd-client a:focus-visible::before{transform:scaleY(1)}
 .sd-client .sd-n{color:var(--sd-teal)}
-.sd-client a:hover .sd-n{color:var(--sd-aqua)}
+.sd-client a:hover .sd-n,.sd-client a:focus-visible .sd-n{color:var(--sd-aqua)}
 .sd-client h3{font-size:clamp(24px,3vw,40px)}
 .sd-client .sd-k{color:var(--sd-muted);text-align:right;transition:color .5s}
-.sd-client a:hover .sd-k{color:rgba(255,255,255,.7)}
+.sd-client a:hover .sd-k,.sd-client a:focus-visible .sd-k{color:rgba(255,255,255,.7)}
 .sd-client svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s var(--sd-ease)}
-.sd-client a:hover svg{transform:translate(4px,-4px)}
+.sd-client a:hover svg,.sd-client a:focus-visible svg{transform:translate(4px,-4px)}
 .sd-clients__more{margin-top:34px}
 
-/* ============ Quote + marquee ============ */
-.sd-quote{margin-top:130px;background:var(--sd-paper);border-radius:40px;box-shadow:var(--sd-shadow-lg);overflow:hidden}
-.sd-quote__body{padding:80px 72px 64px;position:relative}
-.sd-quote__mark{width:64px;height:64px;color:var(--sd-teal);margin-bottom:26px}
-.sd-quote blockquote{margin:0;font-stretch:118%;font-weight:700;font-size:clamp(28px,3.8vw,52px);line-height:1.1;letter-spacing:-.025em;max-width:1000px}
+/* ============ Quote ============ */
+.sd-quote{margin:130px 0 0;padding:72px 0 0;border-top:1.5px solid var(--sd-ink)}
+.sd-quote__mark{width:56px;height:56px;color:var(--sd-teal);margin-bottom:24px}
+.sd-quote blockquote{margin:0;font-family:var(--sd-text);font-style:italic;font-weight:400;font-size:clamp(28px,3.8vw,50px);line-height:1.15;letter-spacing:-.02em;max-width:1000px}
 .sd-quote figcaption{margin-top:28px;color:var(--sd-muted)}
-.sd-marquee{border-top:1px solid var(--sd-line);padding:24px 0;overflow:hidden;display:flex;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.sd-marquee__track{display:flex;flex-shrink:0;gap:0;animation:sdMarq 38s linear infinite}
-.sd-marquee:hover .sd-marquee__track{animation-play-state:paused}
-.sd-marquee span{display:inline-flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap;font-stretch:118%;font-weight:700;font-size:26px;color:var(--sd-ink)}
-.sd-marquee span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--sd-sun)}
-.sd-marquee span:nth-child(even){color:transparent;-webkit-text-stroke:1.2px var(--sd-ink)}
-@keyframes sdMarq{to{transform:translateX(-100%)}}
 
 /* ============ CTA ============ */
 .sd-cta{margin:130px 0 0;border-radius:40px;background:var(--sd-ink);color:#fff;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;box-shadow:var(--sd-shadow-lg);min-height:520px}
@@ -198,59 +179,59 @@ a{color:inherit}
 .sd-cta__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--sd-ink) 0%,rgba(10,29,38,.55) 35%,rgba(10,29,38,.1) 100%)}
 
 /* Footer */
-.sd-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:40px 4px 44px;color:var(--sd-muted)}
 
 /* ============ Responsive ============ */
 @media (max-width:1000px){
-  .sd-phero{grid-template-columns:1fr;padding:110px 44px 56px;gap:44px;min-height:0}
+  .sd-phero{grid-template-columns:1fr;padding:110px 44px 64px;min-height:0}
   .sd-phero__top{left:44px;right:44px}
-  .sd-hport{justify-self:start;max-width:380px}
+  .sd-geo{width:100%;opacity:.6}
   .sd-head{grid-template-columns:90px 1fr}
   .sd-head__note{grid-column:2}
-  .sd-story{grid-template-columns:1fr}
-  .sd-disc{grid-template-columns:repeat(2,1fr)}
-  .sd-prin{grid-template-columns:1fr}
-  .sd-pcard{min-height:0}
+  .sd-story{grid-template-columns:260px 1fr;gap:44px}
+  .sd-facts{grid-template-columns:repeat(2,1fr);gap:28px}
+  .sd-svc{grid-template-columns:repeat(2,1fr);gap:44px 28px}
 }
 @media (max-width:820px){
   .sd-cta{grid-template-columns:1fr}
   .sd-cta__photo{min-height:300px;order:-1}
   .sd-cta__photo::after{background:linear-gradient(0deg,var(--sd-ink) 0%,rgba(10,29,38,.3) 60%,rgba(10,29,38,.1) 100%)}
-  .sd-quote__body{padding:60px 44px 48px}
+  .sd-story{grid-template-columns:1fr}
+  .sd-portrait{max-width:260px}
+  .sd-prin{grid-template-columns:1fr}
+  .sd-pcol,.sd-pcol+.sd-pcol{padding:30px 0;border-left:0;border-bottom:1px solid var(--sd-line)}
   .sd-client a{grid-template-columns:56px 1fr 30px}
   .sd-client .sd-k{display:none}
 }
 @media (max-width:600px){
   body{font-size:16px}
-  .sd-page{padding:12px 12px 0}
-  .sd-phero{padding:96px 22px 44px;border-radius:30px}
+  .sd-page{padding:12px 12px 24px}
+  .sd-phero{padding:96px 22px 48px;border-radius:30px}
   .sd-phero__top{top:22px;left:22px;right:22px}
   .sd-phero__crumb{display:none}
   .sd-phero__logo{height:32px}
   .sd-phero__sub{font-size:17px}
-  .sd-hport__tag{left:auto;right:14px;bottom:-18px}
+  .sd-geo{opacity:.35}
   .sd-section{padding-top:96px}
   .sd-head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}
   .sd-idx{margin-top:0}
   .sd-head__note{grid-column:1}
-  .sd-panel{padding:32px 26px}
-  .sd-fact{grid-template-columns:1fr;gap:6px;padding:22px}
-  .sd-disc{grid-template-columns:1fr}
-  .sd-pcard{padding:32px 26px}
+  .sd-portrait{max-width:200px}
+  .sd-copy p{font-size:17px}
+  .sd-facts{grid-template-columns:1fr;gap:22px}
+  .sd-svc{grid-template-columns:1fr}
   .sd-client a{grid-template-columns:40px 1fr 26px;gap:14px;padding:22px 4px}
-  .sd-client a:hover{padding-left:16px;padding-right:16px}
+  .sd-client a:hover,.sd-client a:focus-visible{padding-left:16px;padding-right:16px}
   .sd-statement{padding-top:110px}
-  .sd-quote{margin-top:96px;border-radius:30px}
-  .sd-quote__body{padding:44px 26px 36px}
-  .sd-marquee span{font-size:20px}
+  .sd-quote{margin-top:96px;padding-top:52px}
   .sd-cta{margin-top:96px;border-radius:30px}
   .sd-cta__copy{padding:40px 26px 44px}
   .sd-cta .sd-btn,.sd-clients__more .sd-btn{width:100%;justify-content:center}
-  .sd-foot{flex-direction:column;padding:32px 6px 36px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .sd-in{opacity:1;transform:none;filter:none}
+  .sd-geo__grid{stroke-dashoffset:0}
+  .sd-geo__cube path{opacity:1}
   .sd-js .sd-r{opacity:1;translate:none;scale:none}
   .sd-js .sd-head::after{transform:none}
   .sd-js .sd-statement .sd-hl{background-size:100% 100%}
@@ -263,158 +244,136 @@ a{color:inherit}
 
   <!-- 00 HERO -->
   <section class="sd-phero" aria-label="About Snowden Design">
-    <div class="sd-phero__grid" aria-hidden="true"></div>
+    <svg class="sd-geo" viewBox="-29 -34 530 476" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="sd-geo__grid" d="M0.0 -34.0 L29.4 -17.0 L29.4 17.0 L0.0 34.0 L-29.4 17.0 L-29.4 -17.0ZM0.0 0.0L0.0 34.0M0.0 0.0L29.4 -17.0M0.0 0.0L-29.4 -17.0M58.9 -34.0 L88.3 -17.0 L88.3 17.0 L58.9 34.0 L29.4 17.0 L29.4 -17.0ZM58.9 0.0L58.9 34.0M58.9 0.0L88.3 -17.0M58.9 0.0L29.4 -17.0M117.8 -34.0 L147.2 -17.0 L147.2 17.0 L117.8 34.0 L88.3 17.0 L88.3 -17.0ZM117.8 0.0L117.8 34.0M117.8 0.0L147.2 -17.0M117.8 0.0L88.3 -17.0M176.7 -34.0 L206.1 -17.0 L206.1 17.0 L176.7 34.0 L147.2 17.0 L147.2 -17.0ZM176.7 0.0L176.7 34.0M176.7 0.0L206.1 -17.0M176.7 0.0L147.2 -17.0M235.6 -34.0 L265.0 -17.0 L265.0 17.0 L235.6 34.0 L206.1 17.0 L206.1 -17.0ZM235.6 0.0L235.6 34.0M235.6 0.0L265.0 -17.0M235.6 0.0L206.1 -17.0M294.4 -34.0 L323.9 -17.0 L323.9 17.0 L294.4 34.0 L265.0 17.0 L265.0 -17.0ZM294.4 0.0L294.4 34.0M294.4 0.0L323.9 -17.0M294.4 0.0L265.0 -17.0M353.3 -34.0 L382.8 -17.0 L382.8 17.0 L353.3 34.0 L323.9 17.0 L323.9 -17.0ZM353.3 0.0L353.3 34.0M353.3 0.0L382.8 -17.0M353.3 0.0L323.9 -17.0M412.2 -34.0 L441.7 -17.0 L441.7 17.0 L412.2 34.0 L382.8 17.0 L382.8 -17.0ZM412.2 0.0L412.2 34.0M412.2 0.0L441.7 -17.0M412.2 0.0L382.8 -17.0M471.1 -34.0 L500.6 -17.0 L500.6 17.0 L471.1 34.0 L441.7 17.0 L441.7 -17.0ZM471.1 0.0L471.1 34.0M471.1 0.0L500.6 -17.0M471.1 0.0L441.7 -17.0M29.4 17.0 L58.9 34.0 L58.9 68.0 L29.4 85.0 L0.0 68.0 L0.0 34.0ZM29.4 51.0L29.4 85.0M29.4 51.0L58.9 34.0M29.4 51.0L0.0 34.0M88.3 17.0 L117.8 34.0 L117.8 68.0 L88.3 85.0 L58.9 68.0 L58.9 34.0ZM88.3 51.0L88.3 85.0M88.3 51.0L117.8 34.0M88.3 51.0L58.9 34.0M147.2 17.0 L176.7 34.0 L176.7 68.0 L147.2 85.0 L117.8 68.0 L117.8 34.0ZM147.2 51.0L147.2 85.0M147.2 51.0L176.7 34.0M147.2 51.0L117.8 34.0M206.1 17.0 L235.6 34.0 L235.6 68.0 L206.1 85.0 L176.7 68.0 L176.7 34.0ZM206.1 51.0L206.1 85.0M206.1 51.0L235.6 34.0M206.1 51.0L176.7 34.0M265.0 17.0 L294.4 34.0 L294.4 68.0 L265.0 85.0 L235.6 68.0 L235.6 34.0ZM265.0 51.0L265.0 85.0M265.0 51.0L294.4 34.0M265.0 51.0L235.6 34.0M323.9 17.0 L353.3 34.0 L353.3 68.0 L323.9 85.0 L294.4 68.0 L294.4 34.0ZM323.9 51.0L323.9 85.0M323.9 51.0L353.3 34.0M323.9 51.0L294.4 34.0M382.8 17.0 L412.2 34.0 L412.2 68.0 L382.8 85.0 L353.3 68.0 L353.3 34.0ZM382.8 51.0L382.8 85.0M382.8 51.0L412.2 34.0M382.8 51.0L353.3 34.0M441.7 17.0 L471.1 34.0 L471.1 68.0 L441.7 85.0 L412.2 68.0 L412.2 34.0ZM441.7 51.0L441.7 85.0M441.7 51.0L471.1 34.0M441.7 51.0L412.2 34.0M500.6 17.0 L530.0 34.0 L530.0 68.0 L500.6 85.0 L471.1 68.0 L471.1 34.0ZM500.6 51.0L500.6 85.0M500.6 51.0L530.0 34.0M500.6 51.0L471.1 34.0M0.0 68.0 L29.4 85.0 L29.4 119.0 L0.0 136.0 L-29.4 119.0 L-29.4 85.0ZM0.0 102.0L0.0 136.0M0.0 102.0L29.4 85.0M0.0 102.0L-29.4 85.0M58.9 68.0 L88.3 85.0 L88.3 119.0 L58.9 136.0 L29.4 119.0 L29.4 85.0ZM58.9 102.0L58.9 136.0M58.9 102.0L88.3 85.0M58.9 102.0L29.4 85.0M117.8 68.0 L147.2 85.0 L147.2 119.0 L117.8 136.0 L88.3 119.0 L88.3 85.0ZM117.8 102.0L117.8 136.0M117.8 102.0L147.2 85.0M117.8 102.0L88.3 85.0M176.7 68.0 L206.1 85.0 L206.1 119.0 L176.7 136.0 L147.2 119.0 L147.2 85.0ZM176.7 102.0L176.7 136.0M176.7 102.0L206.1 85.0M176.7 102.0L147.2 85.0M235.6 68.0 L265.0 85.0 L265.0 119.0 L235.6 136.0 L206.1 119.0 L206.1 85.0ZM235.6 102.0L235.6 136.0M235.6 102.0L265.0 85.0M235.6 102.0L206.1 85.0M294.4 68.0 L323.9 85.0 L323.9 119.0 L294.4 136.0 L265.0 119.0 L265.0 85.0ZM294.4 102.0L294.4 136.0M294.4 102.0L323.9 85.0M294.4 102.0L265.0 85.0M353.3 68.0 L382.8 85.0 L382.8 119.0 L353.3 136.0 L323.9 119.0 L323.9 85.0ZM353.3 102.0L353.3 136.0M353.3 102.0L382.8 85.0M353.3 102.0L323.9 85.0M412.2 68.0 L441.7 85.0 L441.7 119.0 L412.2 136.0 L382.8 119.0 L382.8 85.0ZM412.2 102.0L412.2 136.0M412.2 102.0L441.7 85.0M412.2 102.0L382.8 85.0M471.1 68.0 L500.6 85.0 L500.6 119.0 L471.1 136.0 L441.7 119.0 L441.7 85.0ZM471.1 102.0L471.1 136.0M471.1 102.0L500.6 85.0M471.1 102.0L441.7 85.0M29.4 119.0 L58.9 136.0 L58.9 170.0 L29.4 187.0 L0.0 170.0 L0.0 136.0ZM29.4 153.0L29.4 187.0M29.4 153.0L58.9 136.0M29.4 153.0L0.0 136.0M88.3 119.0 L117.8 136.0 L117.8 170.0 L88.3 187.0 L58.9 170.0 L58.9 136.0ZM88.3 153.0L88.3 187.0M88.3 153.0L117.8 136.0M88.3 153.0L58.9 136.0M147.2 119.0 L176.7 136.0 L176.7 170.0 L147.2 187.0 L117.8 170.0 L117.8 136.0ZM147.2 153.0L147.2 187.0M147.2 153.0L176.7 136.0M147.2 153.0L117.8 136.0M206.1 119.0 L235.6 136.0 L235.6 170.0 L206.1 187.0 L176.7 170.0 L176.7 136.0ZM206.1 153.0L206.1 187.0M206.1 153.0L235.6 136.0M206.1 153.0L176.7 136.0M265.0 119.0 L294.4 136.0 L294.4 170.0 L265.0 187.0 L235.6 170.0 L235.6 136.0ZM265.0 153.0L265.0 187.0M265.0 153.0L294.4 136.0M265.0 153.0L235.6 136.0M323.9 119.0 L353.3 136.0 L353.3 170.0 L323.9 187.0 L294.4 170.0 L294.4 136.0ZM323.9 153.0L323.9 187.0M323.9 153.0L353.3 136.0M323.9 153.0L294.4 136.0M382.8 119.0 L412.2 136.0 L412.2 170.0 L382.8 187.0 L353.3 170.0 L353.3 136.0ZM382.8 153.0L382.8 187.0M382.8 153.0L412.2 136.0M382.8 153.0L353.3 136.0M441.7 119.0 L471.1 136.0 L471.1 170.0 L441.7 187.0 L412.2 170.0 L412.2 136.0ZM441.7 153.0L441.7 187.0M441.7 153.0L471.1 136.0M441.7 153.0L412.2 136.0M500.6 119.0 L530.0 136.0 L530.0 170.0 L500.6 187.0 L471.1 170.0 L471.1 136.0ZM500.6 153.0L500.6 187.0M500.6 153.0L530.0 136.0M500.6 153.0L471.1 136.0M0.0 170.0 L29.4 187.0 L29.4 221.0 L0.0 238.0 L-29.4 221.0 L-29.4 187.0ZM0.0 204.0L0.0 238.0M0.0 204.0L29.4 187.0M0.0 204.0L-29.4 187.0M58.9 170.0 L88.3 187.0 L88.3 221.0 L58.9 238.0 L29.4 221.0 L29.4 187.0ZM58.9 204.0L58.9 238.0M58.9 204.0L88.3 187.0M58.9 204.0L29.4 187.0M117.8 170.0 L147.2 187.0 L147.2 221.0 L117.8 238.0 L88.3 221.0 L88.3 187.0ZM117.8 204.0L117.8 238.0M117.8 204.0L147.2 187.0M117.8 204.0L88.3 187.0M176.7 170.0 L206.1 187.0 L206.1 221.0 L176.7 238.0 L147.2 221.0 L147.2 187.0ZM176.7 204.0L176.7 238.0M176.7 204.0L206.1 187.0M176.7 204.0L147.2 187.0M235.6 170.0 L265.0 187.0 L265.0 221.0 L235.6 238.0 L206.1 221.0 L206.1 187.0ZM235.6 204.0L235.6 238.0M235.6 204.0L265.0 187.0M235.6 204.0L206.1 187.0M294.4 170.0 L323.9 187.0 L323.9 221.0 L294.4 238.0 L265.0 221.0 L265.0 187.0ZM294.4 204.0L294.4 238.0M294.4 204.0L323.9 187.0M294.4 204.0L265.0 187.0M353.3 170.0 L382.8 187.0 L382.8 221.0 L353.3 238.0 L323.9 221.0 L323.9 187.0ZM353.3 204.0L353.3 238.0M353.3 204.0L382.8 187.0M353.3 204.0L323.9 187.0M412.2 170.0 L441.7 187.0 L441.7 221.0 L412.2 238.0 L382.8 221.0 L382.8 187.0ZM412.2 204.0L412.2 238.0M412.2 204.0L441.7 187.0M412.2 204.0L382.8 187.0M471.1 170.0 L500.6 187.0 L500.6 221.0 L471.1 238.0 L441.7 221.0 L441.7 187.0ZM471.1 204.0L471.1 238.0M471.1 204.0L500.6 187.0M471.1 204.0L441.7 187.0M29.4 221.0 L58.9 238.0 L58.9 272.0 L29.4 289.0 L0.0 272.0 L0.0 238.0ZM29.4 255.0L29.4 289.0M29.4 255.0L58.9 238.0M29.4 255.0L0.0 238.0M88.3 221.0 L117.8 238.0 L117.8 272.0 L88.3 289.0 L58.9 272.0 L58.9 238.0ZM88.3 255.0L88.3 289.0M88.3 255.0L117.8 238.0M88.3 255.0L58.9 238.0M147.2 221.0 L176.7 238.0 L176.7 272.0 L147.2 289.0 L117.8 272.0 L117.8 238.0ZM147.2 255.0L147.2 289.0M147.2 255.0L176.7 238.0M147.2 255.0L117.8 238.0M206.1 221.0 L235.6 238.0 L235.6 272.0 L206.1 289.0 L176.7 272.0 L176.7 238.0ZM206.1 255.0L206.1 289.0M206.1 255.0L235.6 238.0M206.1 255.0L176.7 238.0M265.0 221.0 L294.4 238.0 L294.4 272.0 L265.0 289.0 L235.6 272.0 L235.6 238.0ZM265.0 255.0L265.0 289.0M265.0 255.0L294.4 238.0M265.0 255.0L235.6 238.0M323.9 221.0 L353.3 238.0 L353.3 272.0 L323.9 289.0 L294.4 272.0 L294.4 238.0ZM323.9 255.0L323.9 289.0M323.9 255.0L353.3 238.0M323.9 255.0L294.4 238.0M382.8 221.0 L412.2 238.0 L412.2 272.0 L382.8 289.0 L353.3 272.0 L353.3 238.0ZM382.8 255.0L382.8 289.0M382.8 255.0L412.2 238.0M382.8 255.0L353.3 238.0M441.7 221.0 L471.1 238.0 L471.1 272.0 L441.7 289.0 L412.2 272.0 L412.2 238.0ZM441.7 255.0L441.7 289.0M441.7 255.0L471.1 238.0M441.7 255.0L412.2 238.0M500.6 221.0 L530.0 238.0 L530.0 272.0 L500.6 289.0 L471.1 272.0 L471.1 238.0ZM500.6 255.0L500.6 289.0M500.6 255.0L530.0 238.0M500.6 255.0L471.1 238.0M0.0 272.0 L29.4 289.0 L29.4 323.0 L0.0 340.0 L-29.4 323.0 L-29.4 289.0ZM0.0 306.0L0.0 340.0M0.0 306.0L29.4 289.0M0.0 306.0L-29.4 289.0M58.9 272.0 L88.3 289.0 L88.3 323.0 L58.9 340.0 L29.4 323.0 L29.4 289.0ZM58.9 306.0L58.9 340.0M58.9 306.0L88.3 289.0M58.9 306.0L29.4 289.0M117.8 272.0 L147.2 289.0 L147.2 323.0 L117.8 340.0 L88.3 323.0 L88.3 289.0ZM117.8 306.0L117.8 340.0M117.8 306.0L147.2 289.0M117.8 306.0L88.3 289.0M176.7 272.0 L206.1 289.0 L206.1 323.0 L176.7 340.0 L147.2 323.0 L147.2 289.0ZM176.7 306.0L176.7 340.0M176.7 306.0L206.1 289.0M176.7 306.0L147.2 289.0M235.6 272.0 L265.0 289.0 L265.0 323.0 L235.6 340.0 L206.1 323.0 L206.1 289.0ZM235.6 306.0L235.6 340.0M235.6 306.0L265.0 289.0M235.6 306.0L206.1 289.0M294.4 272.0 L323.9 289.0 L323.9 323.0 L294.4 340.0 L265.0 323.0 L265.0 289.0ZM294.4 306.0L294.4 340.0M294.4 306.0L323.9 289.0M294.4 306.0L265.0 289.0M353.3 272.0 L382.8 289.0 L382.8 323.0 L353.3 340.0 L323.9 323.0 L323.9 289.0ZM353.3 306.0L353.3 340.0M353.3 306.0L382.8 289.0M353.3 306.0L323.9 289.0M412.2 272.0 L441.7 289.0 L441.7 323.0 L412.2 340.0 L382.8 323.0 L382.8 289.0ZM412.2 306.0L412.2 340.0M412.2 306.0L441.7 289.0M412.2 306.0L382.8 289.0M471.1 272.0 L500.6 289.0 L500.6 323.0 L471.1 340.0 L441.7 323.0 L441.7 289.0ZM471.1 306.0L471.1 340.0M471.1 306.0L500.6 289.0M471.1 306.0L441.7 289.0M29.4 323.0 L58.9 340.0 L58.9 374.0 L29.4 391.0 L0.0 374.0 L0.0 340.0ZM29.4 357.0L29.4 391.0M29.4 357.0L58.9 340.0M29.4 357.0L0.0 340.0M88.3 323.0 L117.8 340.0 L117.8 374.0 L88.3 391.0 L58.9 374.0 L58.9 340.0ZM88.3 357.0L88.3 391.0M88.3 357.0L117.8 340.0M88.3 357.0L58.9 340.0M147.2 323.0 L176.7 340.0 L176.7 374.0 L147.2 391.0 L117.8 374.0 L117.8 340.0ZM147.2 357.0L147.2 391.0M147.2 357.0L176.7 340.0M147.2 357.0L117.8 340.0M206.1 323.0 L235.6 340.0 L235.6 374.0 L206.1 391.0 L176.7 374.0 L176.7 340.0ZM206.1 357.0L206.1 391.0M206.1 357.0L235.6 340.0M206.1 357.0L176.7 340.0M265.0 323.0 L294.4 340.0 L294.4 374.0 L265.0 391.0 L235.6 374.0 L235.6 340.0ZM265.0 357.0L265.0 391.0M265.0 357.0L294.4 340.0M265.0 357.0L235.6 340.0M323.9 323.0 L353.3 340.0 L353.3 374.0 L323.9 391.0 L294.4 374.0 L294.4 340.0ZM323.9 357.0L323.9 391.0M323.9 357.0L353.3 340.0M323.9 357.0L294.4 340.0M382.8 323.0 L412.2 340.0 L412.2 374.0 L382.8 391.0 L353.3 374.0 L353.3 340.0ZM382.8 357.0L382.8 391.0M382.8 357.0L412.2 340.0M382.8 357.0L353.3 340.0M441.7 323.0 L471.1 340.0 L471.1 374.0 L441.7 391.0 L412.2 374.0 L412.2 340.0ZM441.7 357.0L441.7 391.0M441.7 357.0L471.1 340.0M441.7 357.0L412.2 340.0M500.6 323.0 L530.0 340.0 L530.0 374.0 L500.6 391.0 L471.1 374.0 L471.1 340.0ZM500.6 357.0L500.6 391.0M500.6 357.0L530.0 340.0M500.6 357.0L471.1 340.0M0.0 374.0 L29.4 391.0 L29.4 425.0 L0.0 442.0 L-29.4 425.0 L-29.4 391.0ZM0.0 408.0L0.0 442.0M0.0 408.0L29.4 391.0M0.0 408.0L-29.4 391.0M58.9 374.0 L88.3 391.0 L88.3 425.0 L58.9 442.0 L29.4 425.0 L29.4 391.0ZM58.9 408.0L58.9 442.0M58.9 408.0L88.3 391.0M58.9 408.0L29.4 391.0M117.8 374.0 L147.2 391.0 L147.2 425.0 L117.8 442.0 L88.3 425.0 L88.3 391.0ZM117.8 408.0L117.8 442.0M117.8 408.0L147.2 391.0M117.8 408.0L88.3 391.0M176.7 374.0 L206.1 391.0 L206.1 425.0 L176.7 442.0 L147.2 425.0 L147.2 391.0ZM176.7 408.0L176.7 442.0M176.7 408.0L206.1 391.0M176.7 408.0L147.2 391.0M235.6 374.0 L265.0 391.0 L265.0 425.0 L235.6 442.0 L206.1 425.0 L206.1 391.0ZM235.6 408.0L235.6 442.0M235.6 408.0L265.0 391.0M235.6 408.0L206.1 391.0M294.4 374.0 L323.9 391.0 L323.9 425.0 L294.4 442.0 L265.0 425.0 L265.0 391.0ZM294.4 408.0L294.4 442.0M294.4 408.0L323.9 391.0M294.4 408.0L265.0 391.0M353.3 374.0 L382.8 391.0 L382.8 425.0 L353.3 442.0 L323.9 425.0 L323.9 391.0ZM353.3 408.0L353.3 442.0M353.3 408.0L382.8 391.0M353.3 408.0L323.9 391.0M412.2 374.0 L441.7 391.0 L441.7 425.0 L412.2 442.0 L382.8 425.0 L382.8 391.0ZM412.2 408.0L412.2 442.0M412.2 408.0L441.7 391.0M412.2 408.0L382.8 391.0M471.1 374.0 L500.6 391.0 L500.6 425.0 L471.1 442.0 L441.7 425.0 L441.7 391.0ZM471.1 408.0L471.1 442.0M471.1 408.0L500.6 391.0M471.1 408.0L441.7 391.0"/><g class="sd-geo__cube" style="--i:0"><path class="t" d="M176.7 68.0L206.1 85.0L176.7 102.0L147.2 85.0Z"/><path class="l" d="M147.2 85.0L176.7 102.0L176.7 136.0L147.2 119.0Z"/><path class="r" d="M176.7 102.0L206.1 85.0L206.1 119.0L176.7 136.0Z"/></g><g class="sd-geo__cube" style="--i:1"><path class="t" d="M323.9 119.0L353.3 136.0L323.9 153.0L294.4 136.0Z"/><path class="l" d="M294.4 136.0L323.9 153.0L323.9 187.0L294.4 170.0Z"/><path class="r" d="M323.9 153.0L353.3 136.0L353.3 170.0L323.9 187.0Z"/></g><g class="sd-geo__cube" style="--i:2"><path class="t" d="M265.0 221.0L294.4 238.0L265.0 255.0L235.6 238.0Z"/><path class="l" d="M235.6 238.0L265.0 255.0L265.0 289.0L235.6 272.0Z"/><path class="r" d="M265.0 255.0L294.4 238.0L294.4 272.0L265.0 289.0Z"/></g><g class="sd-geo__cube" style="--i:3"><path class="t" d="M353.3 272.0L382.8 289.0L353.3 306.0L323.9 289.0Z"/><path class="l" d="M323.9 289.0L353.3 306.0L353.3 340.0L323.9 323.0Z"/><path class="r" d="M353.3 306.0L382.8 289.0L382.8 323.0L353.3 340.0Z"/></g><g class="sd-geo__cube" style="--i:4"><path class="t" d="M117.8 272.0L147.2 289.0L117.8 306.0L88.3 289.0Z"/><path class="l" d="M88.3 289.0L117.8 306.0L117.8 340.0L88.3 323.0Z"/><path class="r" d="M117.8 306.0L147.2 289.0L147.2 323.0L117.8 340.0Z"/></g></svg>
     <div class="sd-phero__top sd-in sd-in--1">
       <a href="https://www.snowden-design.com/" target="_top"><img class="sd-phero__logo" src="https://static.wixstatic.com/media/2fde66_a5f60e520e2d43c3ac2eaea2bc564bf8~mv2.png/v1/fill/w_458,h_157,al_c,q_90,enc_auto/sd-logo-white.png" alt="Snowden Design home" width="117" height="40"></a>
-      <span class="sd-mono sd-phero__crumb">Studio / About</span>
+      <span class="sd-label sd-phero__crumb">Studio / About</span>
     </div>
     <div class="sd-phero__copy">
       <div class="sd-phero__pills sd-in sd-in--1">
-        <span class="sd-pill sd-mono"><span class="sd-dot" aria-hidden="true"></span>About the studio</span>
-        <span class="sd-pill sd-mono">Est. in Denver</span>
+        <span class="sd-pill sd-label"><span class="sd-dot" aria-hidden="true"></span>About the studio</span>
+        <span class="sd-pill sd-label">Denver, Colorado</span>
       </div>
       <h1 class="sd-h sd-phero__title sd-in sd-in--2"><span>Where art meets</span><span class="sd-l2">technology.</span></h1>
-      <p class="sd-phero__sub sd-in sd-in--3">Snowden Design is a one-studio, full-spectrum practice in Denver, Colorado. Strategy, design, video and code, made by the same hands so nothing gets lost between them.</p>
+      <p class="sd-phero__sub sd-in sd-in--3">Snowden Design is Blake Snowden, a designer and developer in Denver, Colorado. Strategy, design, media and code come from the same desk, so nothing gets lost between them.</p>
     </div>
-    <figure class="sd-hport sd-in sd-in--4" style="margin:0">
-      <div class="sd-hport__frame"><img src="https://static.wixstatic.com/media/2fde66_67f00bbee6d54cc5bbece13af1434fcc~mv2.png/v1/fill/w_640,h_800,al_t,q_90,enc_auto/blake-snowden.png" alt="Blake Snowden, founder of Snowden Design" loading="eager"></div>
-      <figcaption class="sd-hport__tag"><span class="sd-mono"><span class="sd-dot" aria-hidden="true"></span>Founder</span><b>Blake Snowden</b></figcaption>
-    </figure>
   </section>
 
   <!-- 01 STORY -->
   <section class="sd-section" aria-labelledby="sd-story-h">
     <div class="sd-head sd-r">
-      <span class="sd-idx sd-mono">01</span>
-      <div><div class="sd-eyebrow sd-mono">The story</div><h2 class="sd-h" id="sd-story-h">One studio, <span class="sd-accent">full spectrum.</span></h2></div>
+      <span class="sd-idx sd-label">01</span>
+      <div><div class="sd-eyebrow sd-label">The story</div><h2 class="sd-h" id="sd-story-h">One lead, <span class="sd-accent">full spectrum.</span></h2></div>
       <p class="sd-head__note">Business strategy and creative production under one roof, from the first sketch to launch day.</p>
     </div>
     <div class="sd-story">
-      <div class="sd-panel sd-r">
+      <figure class="sd-portrait sd-r">
+        <div class="sd-portrait__img"><img src="https://static.wixstatic.com/media/2fde66_67f00bbee6d54cc5bbece13af1434fcc~mv2.png/v1/fill/w_520,h_520,al_c,q_90,enc_auto/blake-snowden.png" alt="Portrait of Blake Snowden, designer and developer at Snowden Design in Denver" width="340" height="340" loading="lazy"></div>
+        <figcaption class="sd-label"><span class="sd-dot" aria-hidden="true"></span>Blake Snowden, founder</figcaption>
+      </figure>
+      <div class="sd-copy sd-r" style="--d:.1s">
         <h3 class="sd-h">Hi, I'm Blake.</h3>
-        <p>I run Snowden Design from Denver, Colorado. I build websites that blend art and technology into interactive, engaging experiences, and I make the content that fills them.</p>
-        <p>My primary focus is art, mind-blowing interactive visuals, digital and video production, and e-commerce. Around that sits everything a brand needs to launch: full-spectrum business strategy, graphics, illustration, logo design, SEO, social media, content management and drone footage.</p>
-        <p>Working this way means the person planning your site is the one designing it, filming it and building it. The idea survives all the way to launch.</p>
+        <p>I'm the designer and developer behind Snowden Design. I build websites that blend art and technology into interactive, engaging experiences, and I make much of the content that fills them: graphics, digital art, video and drone footage.</p>
+        <p>I pair the creative work with <strong>full-spectrum business development strategy for B2B and B2C clients</strong>, backed by a deep technical understanding of the nuances it takes to close sophisticated, high-value deals.</p>
+        <p>Working this way means the person planning your site is the one designing it, filming it and building it. The idea survives all the way to launch, and you always know who is accountable for it.</p>
+        <ul class="sd-facts">
+          <li class="sd-fact"><span class="sd-label">Based in</span><b>Denver, Colorado</b></li>
+          <li class="sd-fact"><span class="sd-label">Clients</span><b>B2B and B2C</b></li>
+          <li class="sd-fact"><span class="sd-label">Builds on</span><b>Wix Studio, plus custom code</b></li>
+          <li class="sd-fact"><span class="sd-label">Approach</span><b>Full Spectrum Strategy</b></li>
+        </ul>
       </div>
-      <ul class="sd-facts">
-        <li class="sd-fact sd-r" style="--d:.06s"><span class="sd-mono">Based in</span><b>Denver, Colorado</b></li>
-        <li class="sd-fact sd-r" style="--d:.12s"><span class="sd-mono">Focus</span><b>Interactive visuals, video production and e-commerce</b></li>
-        <li class="sd-fact sd-r" style="--d:.18s"><span class="sd-mono">Platform</span><b>Wix and Wix Studio, with custom code where it counts</b></li>
-        <li class="sd-fact sd-fact--dark sd-r" style="--d:.24s"><span class="sd-mono">Approach</span><b>Full Spectrum Strategy</b></li>
-      </ul>
     </div>
   </section>
 
   <!-- STATEMENT -->
   <section class="sd-statement sd-r" aria-label="Mission">
     <p>Pushing the boundaries of <span class="sd-hl">what's possible</span> in the world of website design.</p>
-    <span class="sd-mono">— Snowden Design</span>
+    <span class="sd-label">— Snowden Design</span>
   </section>
 
-  <!-- 02 DISCIPLINES -->
-  <section class="sd-section" aria-labelledby="sd-disc-h">
+  <!-- 02 SERVICES -->
+  <section class="sd-section" aria-labelledby="sd-svc-h">
     <div class="sd-head sd-r">
-      <span class="sd-idx sd-mono">02</span>
-      <div><div class="sd-eyebrow sd-mono">What I do</div><h2 class="sd-h" id="sd-disc-h">Every discipline <span class="sd-accent">a launch needs.</span></h2></div>
+      <span class="sd-idx sd-label">02</span>
+      <div><div class="sd-eyebrow sd-label">What I do</div><h2 class="sd-h" id="sd-svc-h">Every discipline <span class="sd-accent">a launch needs.</span></h2></div>
       <p class="sd-head__note">Hire the whole studio, or bring in just the piece you're missing.</p>
     </div>
-    <div class="sd-disc">
-      <article class="sd-dcard sd-r">
-        <span class="sd-dcard__n sd-mono">01</span>
-        <div class="sd-dcard__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2-2 2M12 13h4"/></svg></div>
-        <h3 class="sd-h">Strategy &amp; web</h3>
-        <ul><li>Business strategy</li><li>Website design</li><li>UX</li><li>Content management</li></ul>
-      </article>
-      <article class="sd-dcard sd-r" style="--d:.08s">
-        <span class="sd-dcard__n sd-mono">02</span>
-        <div class="sd-dcard__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <h3 class="sd-h">Brand &amp; art</h3>
-        <ul><li>Logo design</li><li>Graphics</li><li>Illustration</li><li>Digital art</li></ul>
-      </article>
-      <article class="sd-dcard sd-r" style="--d:.16s">
-        <span class="sd-dcard__n sd-mono">03</span>
-        <div class="sd-dcard__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M16 10.5l5-3v9l-5-3"/></svg></div>
-        <h3 class="sd-h">Video &amp; aerial</h3>
-        <ul><li>Video production</li><li>Live-action video</li><li>Drone footage</li><li>Photography</li></ul>
-      </article>
-      <article class="sd-dcard sd-r" style="--d:.24s">
-        <span class="sd-dcard__n sd-mono">04</span>
-        <div class="sd-dcard__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4a1.6 1.6 0 0 0 1.6 1.3h8.7a1.6 1.6 0 0 0 1.6-1.2L21 8H6"/></svg></div>
-        <h3 class="sd-h">Commerce &amp; growth</h3>
-        <ul><li>E-commerce solutions</li><li>SEO optimization</li><li>Social media management</li><li>Website copy</li></ul>
-      </article>
+    <div class="sd-svc">
+      <div class="sd-svc__col sd-r">
+        <div class="sd-svc__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2-2 2M12 13h4"/></svg></div>
+        <h3 class="sd-h">Build</h3><span class="sd-svc__k sd-label">Web &amp; search</span>
+        <ul><li>Web design and web development</li><li>User experience (UX)</li><li>SEO and GEO</li></ul>
+      </div>
+      <div class="sd-svc__col sd-r" style="--d:.08s">
+        <div class="sd-svc__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg></div>
+        <h3 class="sd-h">Create</h3><span class="sd-svc__k sd-label">Brand &amp; media</span>
+        <ul><li>Graphics, digital art and 3D</li><li>Video and drone footage</li><li>Brand consulting</li></ul>
+      </div>
+      <div class="sd-svc__col sd-r" style="--d:.16s">
+        <div class="sd-svc__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+        <h3 class="sd-h">Grow</h3><span class="sd-svc__k sd-label">Marketing</span>
+        <ul><li>Marketing strategy and digital marketing</li><li>Performance marketing</li><li>Lead generation</li><li>Social media</li></ul>
+      </div>
+      <div class="sd-svc__col sd-r" style="--d:.24s">
+        <div class="sd-svc__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-1.5A5.5 5.5 0 0 1 10.5 14h3a5.5 5.5 0 0 1 5.5 5.5V21"/></svg></div>
+        <h3 class="sd-h">Lead</h3><span class="sd-svc__k sd-label">Strategy &amp; delivery</span>
+        <ul><li>B2B and B2C business development</li><li>Project management</li><li>Leadership development</li></ul>
+      </div>
     </div>
   </section>
 
   <!-- 03 PRINCIPLES -->
   <section class="sd-section" aria-labelledby="sd-prin-h">
     <div class="sd-head sd-r">
-      <span class="sd-idx sd-mono">03</span>
-      <div><div class="sd-eyebrow sd-mono">What I believe</div><h2 class="sd-h" id="sd-prin-h">More than a <span class="sd-accent">showcase.</span></h2></div>
+      <span class="sd-idx sd-label">03</span>
+      <div><div class="sd-eyebrow sd-label">What I believe</div><h2 class="sd-h" id="sd-prin-h">More than a <span class="sd-accent">showcase.</span></h2></div>
       <p class="sd-head__note">A website should be more than a place to show off products and services. Every plan is built to do three things.</p>
     </div>
     <div class="sd-prin">
-      <article class="sd-pcard sd-r">
-        <span class="sd-mono">Principle 01</span>
-        <p class="sd-pcard__big">Look <span>good.</span></p>
-        <p>Visual design, style guides and motion that make a strong first impression and hold it.</p>
-      </article>
-      <article class="sd-pcard sd-r" style="--d:.1s">
-        <span class="sd-mono">Principle 02</span>
-        <p class="sd-pcard__big">Engage <span>people.</span></p>
-        <p>Active digital content, video and interaction that turn a visit into an immersive experience.</p>
-      </article>
-      <article class="sd-pcard sd-r" style="--d:.2s">
-        <span class="sd-mono">Principle 03</span>
-        <p class="sd-pcard__big">Educate <span>them.</span></p>
-        <p>Clear website copy and content that help your audience learn, then make the next step easy.</p>
-      </article>
+      <div class="sd-pcol sd-r"><span class="sd-label">Principle 01</span><p class="sd-pcol__big">Look <span>good.</span></p><p>Visual design, style guides and motion that make a strong first impression and hold it.</p></div>
+      <div class="sd-pcol sd-r" style="--d:.1s"><span class="sd-label">Principle 02</span><p class="sd-pcol__big">Engage <span>people.</span></p><p>Active digital content, video and interaction that turn a visit into an immersive experience.</p></div>
+      <div class="sd-pcol sd-r" style="--d:.2s"><span class="sd-label">Principle 03</span><p class="sd-pcol__big">Educate <span>them.</span></p><p>Clear website copy and content that help your audience learn, then make the next step easy.</p></div>
     </div>
   </section>
 
   <!-- 04 CLIENTS -->
   <section class="sd-section" aria-labelledby="sd-cli-h">
     <div class="sd-head sd-r">
-      <span class="sd-idx sd-mono">04</span>
-      <div><div class="sd-eyebrow sd-mono">Trusted by</div><h2 class="sd-h" id="sd-cli-h">Brands I've <span class="sd-accent">built for.</span></h2></div>
+      <span class="sd-idx sd-label">04</span>
+      <div><div class="sd-eyebrow sd-label">Built for</div><h2 class="sd-h" id="sd-cli-h">Brands I've <span class="sd-accent">built for.</span></h2></div>
       <p class="sd-head__note">Lodges, ranches, food brands and internet providers. Every site is live.</p>
     </div>
     <ul class="sd-clients">
-      <li class="sd-client sd-r"><a href="https://www.helenfalls.com/" target="_blank" rel="noopener"><span class="sd-n sd-mono">01</span><h3 class="sd-h">Helen Falls Lodge</h3><span class="sd-k sd-mono">Hospitality / Quebec</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
-      <li class="sd-client sd-r"><a href="https://www.shadowcreekranch.co/" target="_blank" rel="noopener"><span class="sd-n sd-mono">02</span><h3 class="sd-h">Shadow Creek Ranch</h3><span class="sd-k sd-mono">Ranch / Colorado</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
-      <li class="sd-client sd-r"><a href="https://www.schultzgourmet.com/" target="_blank" rel="noopener"><span class="sd-n sd-mono">03</span><h3 class="sd-h">Schultz's Gourmet</h3><span class="sd-k sd-mono">E-commerce / Food</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
-      <li class="sd-client sd-r"><a href="https://www.pastajaysauce.com/" target="_blank" rel="noopener"><span class="sd-n sd-mono">04</span><h3 class="sd-h">Pasta Jay's</h3><span class="sd-k sd-mono">Brand / Food</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
-      <li class="sd-client sd-r"><a href="https://www.mojobroadband.co/" target="_blank" rel="noopener"><span class="sd-n sd-mono">05</span><h3 class="sd-h">Mojo Broadband</h3><span class="sd-k sd-mono">Internet / Phoenix</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
-      <li class="sd-client sd-r"><a href="https://www.edgeinternet.co/" target="_blank" rel="noopener"><span class="sd-n sd-mono">06</span><h3 class="sd-h">Edge Internet</h3><span class="sd-k sd-mono">Internet / Showcase</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
-      <li class="sd-client sd-r"><a href="https://www.apesbrain.com/" target="_blank" rel="noopener"><span class="sd-n sd-mono">07</span><h3 class="sd-h">Apes Brain</h3><span class="sd-k sd-mono">Outdoor / Fly fishing</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.helenfalls.com/" target="_blank" rel="noopener"><span class="sd-n sd-label">01</span><h3 class="sd-h">Helen Falls Lodge</h3><span class="sd-k sd-label">Hospitality / Quebec</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.shadowcreekranch.co/" target="_blank" rel="noopener"><span class="sd-n sd-label">02</span><h3 class="sd-h">Shadow Creek Ranch</h3><span class="sd-k sd-label">Ranch / Colorado</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.schultzgourmet.com/" target="_blank" rel="noopener"><span class="sd-n sd-label">03</span><h3 class="sd-h">Schultz's Gourmet</h3><span class="sd-k sd-label">E-commerce / Food</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.pastajaysauce.com/" target="_blank" rel="noopener"><span class="sd-n sd-label">04</span><h3 class="sd-h">Pasta Jay's</h3><span class="sd-k sd-label">Brand / Food</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.mojobroadband.co/" target="_blank" rel="noopener"><span class="sd-n sd-label">05</span><h3 class="sd-h">Mojo Broadband</h3><span class="sd-k sd-label">Internet / Phoenix</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.edgeinternet.co/" target="_blank" rel="noopener"><span class="sd-n sd-label">06</span><h3 class="sd-h">Edge Internet</h3><span class="sd-k sd-label">Internet / Showcase</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+      <li class="sd-client sd-r"><a href="https://www.apesbrain.com/" target="_blank" rel="noopener"><span class="sd-n sd-label">07</span><h3 class="sd-h">Apes Brain</h3><span class="sd-k sd-label">Outdoor / Fly fishing</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
     </ul>
-    <div class="sd-clients__more sd-r"><a class="sd-btn sd-btn--ink" href="https://www.snowden-design.com/projects" target="_top">See the projects
+    <div class="sd-clients__more sd-r"><a class="sd-btn sd-btn--ink" href="https://www.snowden-design.com/projects" target="_top">See the work
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </section>
 
   <!-- QUOTE -->
-  <figure class="sd-quote sd-r" style="margin-left:0;margin-right:0">
-    <div class="sd-quote__body">
-      <svg class="sd-quote__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 36c0-12 6-20 16-22M10 36h12v14H10zM36 36c0-12 6-20 16-22M36 36h12v14H36z"/></svg>
-      <blockquote>If you follow the paths of the uninspired, your rewards will be commensurate.</blockquote>
-      <figcaption class="sd-mono">Studio motto / Snowden Design</figcaption>
-    </div>
-    <div class="sd-marquee" aria-hidden="true">
-      <div class="sd-marquee__track"><span>Full Spectrum Strategy</span><span>Web design</span><span>Graphics</span><span>Digital art</span><span>Video</span><span>SEO</span><span>UX</span><span>Social media</span></div>
-      <div class="sd-marquee__track"><span>Full Spectrum Strategy</span><span>Web design</span><span>Graphics</span><span>Digital art</span><span>Video</span><span>SEO</span><span>UX</span><span>Social media</span></div>
-    </div>
+  <figure class="sd-quote sd-r">
+    <svg class="sd-quote__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 36c0-12 6-20 16-22M10 36h12v14H10zM36 36c0-12 6-20 16-22M36 36h12v14H36z"/></svg>
+    <blockquote>If you follow the paths of the uninspired, your rewards will be commensurate.</blockquote>
+    <figcaption class="sd-label">Studio motto / Snowden Design</figcaption>
   </figure>
 
   <!-- CTA -->
   <section class="sd-cta sd-r" aria-labelledby="sd-cta-h">
     <div class="sd-cta__copy">
-      <div class="sd-eyebrow sd-mono">Work together</div>
+      <div class="sd-eyebrow sd-label">Work together</div>
       <h2 class="sd-h" id="sd-cta-h">Prepare for <span>success.</span></h2>
       <p>Tell me about the brand, the audience and the deadline. I'll come back with a plan.</p>
       <div><a class="sd-btn sd-btn--aqua" href="https://www.snowden-design.com/contact-1" target="_top">Start a project
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="sd-cta__links sd-mono">
-        <a href="tel:+19706858733" target="_top">970.685.8733</a>
+      <div class="sd-cta__links sd-label">
+        <a href="tel:+17203402611" target="_top">720.340.2611</a>
         <a href="mailto:blake@snowden-design.com" target="_top">blake@snowden-design.com</a>
       </div>
     </div>
@@ -422,18 +381,11 @@ a{color:inherit}
       <img src="https://static.wixstatic.com/media/2fde66_c8932db74d9045d4b765f5187c99e67c~mv2.png/v1/fill/w_1200,h_900,al_t,q_85,enc_auto/shadow-creek-ranch.png" alt="" loading="lazy">
     </div>
   </section>
-
-  <footer class="sd-foot sd-mono">
-    <span>Snowden Design / Denver, Colorado</span>
-    <span>Web / Brand / Video / Commerce</span>
-    <span>© <span id="sd-year">2026</span></span>
-  </footer>
 </div>
 </main>
 <script>
 (function(){
   var d=document.documentElement;
-  var y=document.getElementById('sd-year'); if(y) y.textContent=new Date().getFullYear();
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
   d.classList.add('sd-js');
   var io=new IntersectionObserver(function(es){
