@@ -11,7 +11,7 @@ Snowden Design should rank and get cited as **the Denver web designer who builds
 Three primary targets carry the site:
 
 1. **Web design Denver** (and "Denver web designer", "Colorado web design") for the Home page.
-2. **3D product rendering / 3D modeling services** for the Work page, proven by the MONGRAIN projects.
+2. **3D architectural visualization** for the 3D showcase page (/3d-visualization), proven by the MONGRAIN interactive building-envelope explorer; the Work page keeps "3D product rendering services".
 3. **Website care plans + SEO/GEO, ads and social management** for a Services/Packages page, which is where recurring revenue comes from.
 
 How to use this doc: the keyword map says what each cluster targets, the page assignments say which page owns which keyword (one primary per page, no two pages competing), and the spec and schema sections are the checklist every page build follows before BLAKE publishes in Wix.
@@ -20,13 +20,14 @@ Keyword priorities below are tiers based on intent and local competition, not me
 
 ## Keyword map
 
-Eight clusters cover the skill set. Tier 1 = commercial intent and winnable locally, target first; Tier 2 = supporting pages and sections; Tier 3 = long-tail for FAQs, blog posts and GEO answers.
+Nine clusters cover the skill set. Tier 1 = commercial intent and winnable locally, target first; Tier 2 = supporting pages and sections; Tier 3 = long-tail for FAQs, blog posts and GEO answers.
 
 | Cluster | Primary keyword | Secondary and long-tail | Intent | Tier |
 | --- | --- | --- | --- | --- |
 | Local web design | web design Denver | Denver web designer; Colorado web design; small business website design Denver; custom website design Colorado; web developer Denver CO | Hire | 1 |
 | Wix specialist | Wix web designer | Wix Studio designer Denver; Wix expert Colorado; Wix website redesign; Wix SEO setup; migrate website to Wix | Hire | 1 |
-| 3D modeling and rendering | 3D product rendering services | 3D modeling services Denver; photorealistic product rendering; jewelry 3D rendering; CAD to render; 3D product visualization for ecommerce; 360 product spin | Hire | 1 |
+| 3D architectural visualization | 3D architectural visualization | interactive 3D building model; exploded assembly animation; BIM-style visualization; building envelope 3D model; construction 3D visualization Denver; WebGL / Three.js 3D model for websites | Hire | 1 |
+| 3D product rendering | 3D product rendering services | 3D modeling services Denver; photorealistic product rendering; CAD to render; 3D product visualization for ecommerce; 360 product spin | Hire | 1 |
 | SEO | SEO services Denver | local SEO Colorado; Google Business Profile optimization; technical SEO audit; on-page SEO for small business; Wix SEO services | Hire | 1 |
 | GEO / AI search | generative engine optimization | GEO services; AI search optimization; how to rank in ChatGPT answers; get cited by Google AI Overviews; answer engine optimization (AEO) | Learn, then hire | 2 |
 | Analytics and reporting | Google Analytics 4 setup | GA4 dashboard for small business; Looker Studio website report; monthly website performance report; conversion tracking setup | Hire / learn | 2 |
@@ -55,13 +56,14 @@ Each page owns one primary keyword and no other page uses that keyword as its pr
 
 | Page | Slug | Primary keyword | Secondary keywords | Schema types |
 | --- | --- | --- | --- | --- |
-| Home | / | web design Denver | Denver web designer; Wix web designer; 3D product rendering; website care plans | ProfessionalService (LocalBusiness), WebSite, Organization |
-| Work | /work | 3D product rendering services | web design portfolio Denver; jewelry 3D rendering (MONGRAIN); Wix website examples | CollectionPage, CreativeWork per project, ImageObject |
+| Home | / | web design Denver | Denver web designer; Wix web designer; 3D architectural visualization; website care plans | ProfessionalService (LocalBusiness), WebSite, Organization |
+| Work | /work | 3D product rendering services | web design portfolio Denver; 3D modeling services; Wix website examples | CollectionPage, CreativeWork per project, ImageObject |
+| 3D visualization | /3d-visualization | 3D architectural visualization | interactive 3D building model; exploded assembly animation; BIM-style visualization; building envelope 3D model (MONGRAIN) | WebPage, CreativeWork / 3DModel, VideoObject if a walkthrough video is added |
 | Services | /services | Wix web designer Denver | custom website design Colorado; SEO services Denver; generative engine optimization; Google Analytics 4 setup | Service (one per offer), FAQPage |
 | Growth packages | /packages | website maintenance plans | managed website hosting Colorado; Google Ads management Denver; social media management Denver; monthly website report | Service + OfferCatalog, FAQPage |
 | SEO & GEO | /seo-geo | SEO services Denver | generative engine optimization; AI search optimization; local SEO Colorado; Google Business Profile optimization | Service, FAQPage |
 | Analytics sample | /analytics-dashboard | GA4 dashboard for small business | Looker Studio website report; monthly website performance report | WebPage, Dataset (optional) |
-| About | /about | Denver web developer and 3D artist | Blake Snowden; web design and 3D rendering Colorado | AboutPage, Person |
+| About | /about | Denver web developer and 3D artist | Blake Snowden; web design and 3D visualization Colorado | AboutPage, Person |
 | Contact | /contact | contact a Denver web designer | free website consultation Denver; website quote Colorado | ContactPage, ProfessionalService |
 
 Slug notes: Wix keeps old slugs like /contact-1 unless renamed. Rename to the slugs above and add 301 redirects from /projects and /contact-1 in Wix's URL Redirect Manager so existing rankings carry over.
@@ -95,7 +97,8 @@ Titles stay under 60 characters with the primary keyword first; descriptions run
 | Page | Title tag | Meta description |
 | --- | --- | --- |
 | Home | Web Design Denver \| Wix, 3D Rendering & SEO \| Snowden Design | Denver web designer building fast Wix sites, photorealistic 3D product renders and SEO/GEO growth plans. Book a free consultation with Snowden Design. |
-| Work | 3D Product Rendering & Web Design Portfolio \| Snowden Design | See 3D product renders and Wix websites by Snowden Design, including photorealistic jewelry rendering for MONGRAIN. Based in Denver, serving clients nationwide. |
+| Work | 3D Product Rendering & Web Design Portfolio \| Snowden Design | See photorealistic 3D product renders and custom Wix websites by Snowden Design, a Denver web designer and 3D artist serving clients nationwide. |
+| 3D visualization | 3D Architectural Visualization Denver \| Snowden Design | Explore an interactive 3D building-envelope model: exploded wall, roof and foundation assemblies built in Three.js by Snowden Design, Denver. |
 | Services | Wix Web Designer Denver \| Design, SEO & 3D \| Snowden Design | Custom Wix website design, SEO and GEO, GA4 analytics and 3D product rendering from a Denver web designer. Clear pricing, fast turnaround, local support. |
 | Growth packages | Website Maintenance Plans & Growth Packages \| Snowden Design | Monthly website care plans: hosting, updates, security, GA4 reports, SEO/GEO, Google Ads and social media management from Snowden Design in Denver, CO. |
 | SEO & GEO | SEO & GEO Services Denver \| Rank in Google and AI Answers | Local SEO and generative engine optimization in Denver. Get found on Google, in AI Overviews and in ChatGPT answers with structured data and content that ranks. |
@@ -106,7 +109,7 @@ Titles stay under 60 characters with the primary keyword first; descriptions run
 ### Social tags (Open Graph and X/Twitter)
 
 - `og:title` and `og:description`: reuse the title and description above (Wix fills these from the SEO panel unless overridden under Social Share).
-- `og:image`: a 1200 x 630 px JPG or PNG under 1 MB per page; use a MONGRAIN render on Work and a branded card elsewhere. Text kept inside the centre 1000 x 500 px so crops don't cut it.
+- `og:image`: a 1200 x 630 px JPG or PNG under 1 MB per page; use a MONGRAIN exploded building-envelope render on 3D Visualization, a product render on Work, and a branded card elsewhere. Text kept inside the centre 1000 x 500 px so crops don't cut it.
 - `og:type` = website (Home) or article (blog posts); `og:locale` = en_US; `og:site_name` = Snowden Design.
 - `twitter:card` = summary_large_image. Add `twitter:site` only if BLAKE has an X account.
 
@@ -115,7 +118,7 @@ Titles stay under 60 characters with the primary keyword first; descriptions run
 1. **One H1 per page** containing the primary keyword, e.g. Home: "Denver web design, 3D rendering and growth plans". Wix page titles in the menu do not count as an H1.
 2. **H2s for each section, H3s inside them**, never skipping levels. At least two H2s phrased as questions (GEO rule 2).
 3. **Primary keyword in the first 100 words**, once in an H2, and in the image alt text of the lead image. Two or three natural uses per page is enough.
-4. **Alt text** describes the image and its context in under 125 characters: "Photorealistic 3D render of a diamond engagement ring for MONGRAIN". Decorative images get empty alt. File names match: `mongrain-engagement-ring-3d-render.webp`, not `IMG_2041.png`.
+4. **Alt text** describes the image and its context in under 125 characters: "Exploded 3D view of a hospital wall and roof assembly from the MONGRAIN building-envelope explorer". Decorative images get empty alt. File names match: `mongrain-hospital-envelope-exploded-3d.webp`, not `IMG_2041.png`.
 5. **Images**: WebP or AVIF, at most 200 KB for photos and renders on page (offer full-size renders via click-through), explicit width and height to avoid layout shift, lazy-loading below the fold.
 6. **Internal links**: every page links to Services and Contact; Work project cards link to the matching service; the Packages page links to the Analytics sample. Anchor text uses keywords ("3D product rendering services"), never "click here".
 7. **Canonical** = the clean `https://www.snowden-design.com/<slug>` URL (Wix sets it; check it isn't pointing at the wixsite.com address).
@@ -255,18 +258,20 @@ The questions and answers must match the visible text word for word. Google now 
 }
 ```
 
-### 6. Portfolio project (Work, one per featured project)
+### 6. Portfolio project (3D Visualization and Work, one per featured project)
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
-  "name": "MONGRAIN 3D product renders",
+  "name": "MONGRAIN interactive 3D building-envelope explorer",
+  "url": "https://www.snowden-design.com/3d-visualization",
   "creator": { "@id": "https://www.snowden-design.com/about#blake" },
-  "about": "Photorealistic 3D modeling and rendering for MONGRAIN",
-  "image": ["https://www.snowden-design.com/<render-1>.webp"],
+  "genre": "3D architectural visualization",
+  "about": "Interactive 3D visualization of a hospital building envelope for a building-envelope contractor: exploded wall, roof and foundation assemblies and a 24-component BIM-style section, built with Three.js and WebGL.",
+  "image": ["https://www.snowden-design.com/<mongrain-hospital-envelope-exploded-3d>.webp"],
   "dateCreated": "<YYYY>",
-  "keywords": "3D product rendering, jewelry 3D rendering, product visualization"
+  "keywords": "3D architectural visualization, interactive 3D building model, exploded assembly animation, BIM-style visualization, building envelope"
 }
 ```
 
