@@ -128,6 +128,8 @@ Paste these into each page's Wix SEO panel (Advanced SEO, Structured data markup
 
 Snowden Design is a service-area business, so the address carries city and region only, with no street line, matching how the Google Business Profile should be set up.
 
+For `logo`, upload `assets/brand/snowden-design-reflective-rook-logo.png` (the approved reflective rook logo) to Wix Media and paste its URL. Use the same file for the Google Business Profile logo.
+
 ```json
 {
   "@context": "https://schema.org",
@@ -135,7 +137,7 @@ Snowden Design is a service-area business, so the address carries city and regio
   "@id": "https://www.snowden-design.com/#business",
   "name": "Snowden Design",
   "url": "https://www.snowden-design.com/",
-  "logo": "https://www.snowden-design.com/<logo-path>.png",
+  "logo": "<Wix media URL of snowden-design-reflective-rook-logo.png>",
   "image": "https://www.snowden-design.com/<og-image>.jpg",
   "description": "Denver web design studio building Wix websites, interactive 3D visualization and SEO/GEO growth plans.",
   "telephone": "+1-720-340-2611",
