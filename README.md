@@ -6,7 +6,7 @@ Redesign of [snowden-design.com](https://www.snowden-design.com), Blake Snowden'
 
 | Page | File | Wix iframe height (desktop / tablet / phone) |
 | --- | --- | --- |
-| Home | `pages/home/snowden-home.html` | 7,420 / 9,230 / 12,030 px |
+| Home | `pages/home/snowden-home.html` | 7,500 / 9,300 / 12,030 px |
 
 `pages/home/preview.html` is the preview page (browser window + copy-code panel) generated from the embed file.
 
