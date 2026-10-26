@@ -41,7 +41,7 @@ Updated October 2026
 
 ## 2. Embed [Embed]
 
-Paste `snowden-packages.html` into an Embed HTML element, full width. Accessible name: "Basecamp, Ascent and Summit website maintenance plans with a sample GA4 report". Heights are in the README table.
+Paste `snowden-packages.html` into an Embed HTML element, full width. Accessible name: "Basecamp, Ascent and Summit website maintenance plans with a sample GA4 report". Enter it in the embed's Accessibility settings (Accessible name / title); Wix writes it to the iframe `title`. The embed's own hero headline is an H2, so the native intro band holds the page's only H1. Heights are in the README table.
 
 ## 3. Plan summaries [Native]
 
