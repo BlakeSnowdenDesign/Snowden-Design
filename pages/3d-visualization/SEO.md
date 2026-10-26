@@ -37,7 +37,7 @@ The primary keyword appears in the title, H1, first paragraph, one H2 (FAQ), the
 Per the spec, text that should rank lives in native Wix elements. The embed is the visual and interactive layer. Stack the page like this:
 
 1. **Native text, H1 + intro** (section 3). Set the heading to H1 in text settings.
-2. **Embed HTML** `snowden-3d-visualization.html`, full width. Its own hero, live model, gallery and capability cards. Accessible name: "Interactive 3D building-envelope explorer for Mongrain".
+2. **Embed HTML** `snowden-3d-visualization.html`, full width. Its own hero, live model, gallery and capability cards. Accessible name: "Interactive 3D building-envelope explorer for Mongrain". Enter it in the embed's Accessibility settings (Accessible name / title); Wix writes it to the iframe `title`. The embed's own hero headline is an H2, so the native H1 above it is the page's only H1.
 3. **Native gallery** of the four renders with the alt text in section 4 (Pro Gallery or a grid of image elements). Images inside the embed don't count for image search; these do.
 4. **Native text, case study paragraph and H2s** (section 3).
 5. **Native text, FAQ** with each question as an H3 (section 3). Must match the schema word for word.
