@@ -4,8 +4,18 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet"><link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,500i,600i,700i&display=swap" rel="stylesheet">
-<style>html,body{margin:0;padding:0;background:transparent} .sd-header {
+<style>html,body{margin:0;padding:0;background:transparent} @property --sd-turn { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.sd-header {
   --glass-ink: #30383d;
+  /* Brushed aluminum finish. Light/dark sectors of a conic gradient give the
+     anisotropic reflection of turned metal; --sd-grain adds the lathe lines
+     (painted once on a canvas by the script; this CSS ring pattern is the fallback). */
+  --sd-turned: #bcc3cb 0deg, #f4f6f8 22deg, #a3acb6 48deg, #e8ebee 70deg, #fbfcfd 84deg, #9ba4ae 112deg,
+    #d7dce1 140deg, #b0b8c0 170deg, #eef1f3 200deg, #a7b0b9 228deg, #f6f8f9 254deg,
+    #a0a9b3 280deg, #e3e7ea 302deg, #fcfdfd 320deg, #99a3ad 344deg, #bcc3cb 360deg;
+  --sd-bezel: linear-gradient(180deg, #ffffff 0%, #eef2f5 22%, #c4ccd4 50%, #e4e9ed 74%, #ffffff 90%, #d2d9df 100%);
+  --sd-grain-size: 1100px;
+  --sd-grain: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 .6px, rgba(52,62,72,.05) .9px 1.4px, rgba(0,0,0,0) 1.7px 2.5px);
   position: relative;
   z-index: 60;
   width: 100%;
@@ -49,21 +59,27 @@
   place-items: center;
   overflow: hidden;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.98);
+  /* Turned aluminum disc in a polished bezel, same finish as the menu buttons. */
+  border: 3px solid transparent;
   background:
-    radial-gradient(115% 78% at 23% 12%, rgba(255,255,255,.98), transparent 49%),
-    linear-gradient(150deg, #fafcfd 0%, #e0e5e8 24%, #9ca6ac 51%, #dce1e3 77%, #fff 100%);
-  box-shadow: inset 0 2px 2px #fff, inset 0 -3px 5px rgba(31,39,44,.35), inset 0 0 0 1px rgba(90,101,108,.42), 0 0 0 2px rgba(225,232,235,.7), 0 2px 3px rgba(255,255,255,.7);
-  backdrop-filter: blur(12px) saturate(125%);
+    radial-gradient(70% 55% at 28% 14%, rgba(255,255,255,.8), rgba(255,255,255,0) 70%) padding-box,
+    var(--sd-grain) center / var(--sd-grain-size) var(--sd-grain-size) no-repeat padding-box,
+    conic-gradient(from 12deg at 50% 50%, var(--sd-turned)) padding-box,
+    var(--sd-bezel) border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(88,100,112,.55),
+    inset 0 0 0 2px rgba(255,255,255,.82),
+    inset 0 -4px 6px -3px rgba(36,44,52,.32),
+    0 0 0 1px rgba(118,128,138,.7),
+    0 1px 0 1px rgba(255,255,255,.6);
 }
 .sd-header__toggle-face::before {
   content: "";
   position: absolute;
-  inset: 3px;
+  inset: 0;
   border-radius: inherit;
-  border: 1px solid rgba(255,255,255,.68);
-  background: linear-gradient(150deg, rgba(255,255,255,.18), transparent 45%, rgba(62,72,78,.13));
-  box-shadow: inset 0 1px 2px rgba(255,255,255,.88), inset 0 -1px 2px rgba(72,79,83,.24);
+  background: radial-gradient(60% 40% at 50% 100%, rgba(255,240,218,.45), rgba(255,240,218,0) 80%);
+  pointer-events: none;
 }
 .sd-header__toggle-face::after {
   content: "";
@@ -117,59 +133,98 @@
 }
 .sd-header.is-open .sd-header__panel { visibility: visible; pointer-events: auto; }
 .sd-header__link {
+  /* Turning centre of the brushed grain, relative to the button face.
+     Each button gets its own (see nth-child below) so no two plates match. */
+  --cx: 34%;
+  --cy: 165%;
+  --sd-base: 0deg;
   position: relative;
   display: flex;
   align-items: center;
   isolation: isolate;
   min-height: 45px;
   width: 100%;
-  padding: 10px 16px;
+  padding: 7px 14px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.98);
+  border: 4px solid transparent;
   background:
-    radial-gradient(125% 100% at 14% 4%, rgba(255,255,255,.98), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,.84), rgba(248,250,251,.28) 23%, rgba(125,136,142,.1) 58%, rgba(247,249,250,.32)),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.085) 0 1px, rgba(44,54,61,.022) 1px 2px, transparent 2px 4px),
-    linear-gradient(112deg, #f8fafb 0%, #d5dade 17%, #edf0f1 38%, #aeb7bc 63%, #e4e8ea 82%, #fff 100%);
+    /* top-left specular bloom */
+    radial-gradient(34% 130% at 3% 0%, rgba(255,255,255,.9), rgba(255,255,255,0) 62%) padding-box,
+    /* warm glint off the tan wall, bottom-right corner */
+    radial-gradient(9% 70% at 97% 92%, #fff3e0, rgba(255,226,186,.55) 40%, rgba(255,226,186,0) 80%) padding-box,
+    /* plate turns away from the light at the right end, cool at the left */
+    linear-gradient(90deg, rgba(90,104,118,.3) 0%, rgba(255,255,255,.55) 3.5%, rgba(255,255,255,0) 12%, rgba(60,66,72,0) 76%, rgba(48,54,60,.62) 91%, rgba(56,60,64,.36) 100%) padding-box,
+    /* bright catch on the top-right shoulder */
+    radial-gradient(10% 45% at 93% 6%, rgba(255,255,255,.9), rgba(255,255,255,0) 80%) padding-box,
+    /* soft roll-off top and bottom */
+    linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0) 30%, rgba(40,50,60,.06) 60%, rgba(255,255,255,.18)) padding-box,
+    /* anisotropic reflection of turned metal */
+    conic-gradient(from calc(var(--sd-base) + var(--sd-turn)) at var(--cx) var(--cy), var(--sd-turned)) padding-box,
+    /* glints on the polished rim: warm bottom-right, white top corners */
+    radial-gradient(7% 55% at 95% 100%, #fff4e2, rgba(255,232,200,0) 100%) border-box,
+    radial-gradient(5% 45% at 4% 4%, #fff, rgba(255,255,255,0) 100%) border-box,
+    radial-gradient(6% 45% at 90% 0%, #fff, rgba(255,255,255,0) 100%) border-box,
+    var(--sd-bezel) border-box;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.99),
-    inset 0 0 0 1px rgba(255,255,255,.48),
-    inset 0 2px 3px rgba(255,255,255,.56),
-    inset 0 -2px 4px rgba(39,47,52,.3),
-    0 0 0 1px rgba(75,86,93,.52),
-    0 1px 0 2px rgba(255,255,255,.86),
-    0 3px 5px rgba(43,51,55,.16),
-    0 9px 17px rgba(34,41,45,.22);
-  color: #111619;
+    inset 0 0 0 1px rgba(62,74,86,.85),
+    inset 0 0 0 2px rgba(255,255,255,.9),
+    inset 0 3px 5px -1px rgba(40,50,62,.28),
+    inset 0 -7px 10px -9px rgba(36,44,52,.5),
+    0 0 0 1px rgba(84,96,108,.85),
+    0 1px 0 1px rgba(255,255,255,.55),
+    0 3px 4px rgba(96,70,36,.2),
+    0 9px 16px -4px rgba(96,66,28,.3);
+  color: #0b0e10;
   text-decoration: none;
   font-size: clamp(14px, 4.1vw, 16px);
   line-height: 1.2;
   font-weight: 650;
   font-style: normal;
   letter-spacing: -.018em;
-  text-shadow: 0 1px 0 rgba(255,255,255,.9);
+  text-shadow: 0 1px 0 rgba(255,255,255,.6);
   opacity: 0;
   transform: translateX(var(--entry-x, 0px)) rotateY(-5deg);
   transform-origin: right center;
-  transition: color .2s, font-style .2s, font-weight .2s, box-shadow .24s, background .22s;
+  transition: color .2s, font-style .2s, font-weight .2s, box-shadow .24s, --sd-turn .7s cubic-bezier(.2,.8,.2,1);
   transition-delay: 0ms;
   will-change: opacity, transform;
 }
+.sd-header__link:nth-child(1) { --cx: 30%; --cy: 320%; --sd-base: 4deg; }
+.sd-header__link:nth-child(2) { --cx: 75%; --cy: 260%; --sd-base: -10deg; }
+.sd-header__link:nth-child(3) { --cx: 57%; --cy: 100%; --sd-base: 0deg; }
+.sd-header__link:nth-child(4) { --cx: 38%; --cy: 380%; --sd-base: 14deg; }
+.sd-header__link:nth-child(5) { --cx: 85%; --cy: 240%; --sd-base: -6deg; }
+.sd-header__link:nth-child(6) { --cx: 20%; --cy: 300%; --sd-base: 9deg; }
+.sd-header__link:nth-child(7) { --cx: 66%; --cy: 420%; --sd-base: -14deg; }
+.sd-header__link:nth-child(8) { --cx: 44%; --cy: 280%; --sd-base: 6deg; }
 .sd-header__sweep {
   position: absolute;
   z-index: -1;
-  inset: 0;
+  inset: 2px;
   overflow: hidden;
-  border-radius: inherit;
+  border-radius: 8px;
   pointer-events: none;
 }
+/* Specular sweep that crosses the plate on hover. */
 .sd-header__sweep::before {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: -35% -52%;
   transform: translateX(-76%) rotate(0.001deg);
-  background: linear-gradient(100deg, transparent 39%, rgba(255,255,255,.12) 44%, rgba(255,255,255,.82) 49%, rgba(255,255,255,.3) 52%, rgba(224,232,236,.24) 55%, transparent 62%);
+  background: linear-gradient(100deg, transparent 39%, rgba(255,255,255,.1) 44%, rgba(255,255,255,.72) 49%, rgba(255,255,255,.26) 52%, rgba(255,240,220,.18) 55%, transparent 62%);
   transition: transform .55s cubic-bezier(.2,.7,.2,1);
+}
+/* Circular lathe grain, centred on the button's turning point. */
+.sd-header__sweep::after {
+  content: "";
+  position: absolute;
+  width: var(--sd-grain-size);
+  height: var(--sd-grain-size);
+  left: calc(var(--cx) - var(--sd-grain-size) / 2);
+  top: calc(var(--cy) - var(--sd-grain-size) / 2);
+  background: var(--sd-grain) center / 100% 100% no-repeat;
+  pointer-events: none;
 }
 .sd-header__label {
   position: relative;
@@ -185,16 +240,21 @@
 .sd-header__link:hover,
 .sd-header__link:focus-visible,
 .sd-header__link.is-hot {
-  color: #080c0f;
+  color: #05080a;
   font-style: italic;
   font-weight: 750;
   transform: translateY(-2px);
-  background:
-    radial-gradient(125% 92% at 13% 0%, rgba(255,255,255,1), transparent 50%),
-    linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.34) 40%, rgba(76,87,94,.08)),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.11) 0 1px, rgba(46,57,63,.02) 1px 2px, transparent 2px 4px),
-    linear-gradient(112deg, #fff 0%, #e4e8ea 20%, #f9fafb 41%, #c3cbd0 66%, #fff 100%);
-  box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255,255,255,.72), inset 0 -2px 4px rgba(50,59,64,.16), 0 0 0 1px rgba(75,86,93,.55), 0 1px 0 2px rgba(255,255,255,.92), 0 4px 7px rgba(43,51,55,.16), 0 12px 22px rgba(34,41,45,.27);
+  /* the reflection rotates as if the light moved across the turned face */
+  --sd-turn: 24deg;
+  box-shadow:
+    inset 0 0 0 1px rgba(72,84,96,.72),
+    inset 0 0 0 2px rgba(255,255,255,.95),
+    inset 0 3px 5px -1px rgba(40,50,62,.22),
+    inset 0 -7px 10px -9px rgba(36,44,52,.42),
+    0 0 0 1px rgba(110,120,130,.72),
+    0 1px 0 1px rgba(255,255,255,.7),
+    0 5px 7px rgba(96,70,36,.2),
+    0 14px 24px -6px rgba(96,66,28,.36);
 }
 .sd-header__link:hover .sd-header__sweep::before,
 .sd-header__link:focus-visible .sd-header__sweep::before,
@@ -202,7 +262,14 @@
 .sd-header__link:focus-visible { outline: 2px solid rgba(25,34,39,.92); outline-offset: 4px; }
 .sd-header__link:active {
   transform: translateY(1px) scale(.992);
-  box-shadow: inset 0 2px 4px rgba(37,45,50,.2), 0 1px 2px rgba(34,41,45,.16);
+  --sd-turn: 34deg;
+  box-shadow:
+    inset 0 0 0 1px rgba(80,92,104,.6),
+    inset 0 0 0 2px rgba(255,255,255,.6),
+    inset 0 3px 7px rgba(30,38,46,.34),
+    0 0 0 1px rgba(110,120,130,.72),
+    0 1px 0 1px rgba(255,255,255,.5),
+    0 1px 2px rgba(96,70,36,.28);
 }
 @keyframes sd-glass-arrive {
   from { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
@@ -232,11 +299,11 @@
     gap: 8px;
     padding: 5px 5px 14px;
   }
-  .sd-header__link { min-height: 44px; }
+  .sd-header__link { min-height: 60px; border-width: 5px; border-radius: 16px; font-size: 20px; font-weight: 700; padding-inline: 20px; }
 }
 @media (max-width: 380px) {
   .sd-header__panel { left: 10px; right: 10px; }
-  .sd-header__link { padding-inline: 13px; }
+  .sd-header__link { padding-inline: 14px; }
 }
 @media (max-height: 520px) {
   .sd-header__panel { max-height: calc(100dvh - 18px); }
@@ -248,6 +315,7 @@
   .sd-header *, .sd-header *::before, .sd-header *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; }
   .sd-header.is-open .sd-header__link { opacity: 1; transform: none; }
   .sd-header__sweep::before { transform: none !important; opacity: .16; }
+  .sd-header__link:hover, .sd-header__link:focus-visible, .sd-header__link.is-hot { --sd-turn: 0deg; }
 }
 </style></head>
 <body><header class="sd-header" data-sd-header>
@@ -259,7 +327,32 @@
     <nav class="sd-header__panel" id="sd-header-navigation" aria-label="Main navigation" aria-hidden="true" inert>
       <a class="sd-header__link" href="https://www.snowden-design.com/work" target="_top" style="--col:0;--row:0;--i:0" data-testid="link-nav-work"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">Work</span></a><a class="sd-header__link" href="https://www.snowden-design.com/services" target="_top" style="--col:1;--row:0;--i:1" data-testid="link-nav-services"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">Services</span></a><a class="sd-header__link" href="https://www.snowden-design.com/home-1-1-1" target="_top" style="--col:2;--row:0;--i:2" data-testid="link-nav-3d-rendering"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">3D & Rendering</span></a><a class="sd-header__link" href="https://www.snowden-design.com/seo-geo" target="_top" style="--col:3;--row:0;--i:3" data-testid="link-nav-seo-geo"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">SEO & GEO</span></a><a class="sd-header__link" href="https://www.snowden-design.com/website-growth" target="_top" style="--col:0;--row:1;--i:4" data-testid="link-nav-website-growth-plans"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">Website & Growth Plans</span></a><a class="sd-header__link" href="https://www.snowden-design.com/drone-photograph-video" target="_top" style="--col:1;--row:1;--i:5" data-testid="link-nav-photography-video-aerial"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">Photography, Video & Aerial</span></a><a class="sd-header__link" href="https://www.snowden-design.com/about" target="_top" style="--col:2;--row:1;--i:6" data-testid="link-nav-about"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">About</span></a><a class="sd-header__link" href="https://www.snowden-design.com/contact" target="_top" style="--col:3;--row:1;--i:7" data-testid="link-nav-contact"><span class="sd-header__sweep" aria-hidden="true"></span><span class="sd-header__label">Contact</span></a>
     </nav>
-  </header><script>(function(){var initHeader=function initHeader(root, { open: openInitially = false } = {}) {
+  </header><script>(function(){var paintGrain=function paintGrain(header) {
+  // Paints the circular lathe grain once and hands it to the CSS as --sd-grain.
+  // If anything here fails, the CSS fallback grain stays in place.
+  try {
+    const size = 1100, k = Math.min(2, window.devicePixelRatio || 1), n = Math.round(size * k);
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = n;
+    const g = canvas.getContext("2d");
+    if (!g || !canvas.toBlob) return;
+    const m = n / 2, R = m * 1.42, TAU = Math.PI * 2;
+    const stroke = (r, from, to, light, alpha, width) => {
+      g.strokeStyle = light ? `rgba(255,255,255,${alpha})` : `rgba(40,50,60,${alpha})`;
+      g.lineWidth = width;
+      g.beginPath(); g.arc(m, m, r, from, to); g.stroke();
+    };
+    g.lineCap = "round";
+    for (let r = k; r < R; r += 0.8 * k) stroke(r, 0, TAU, Math.random() < .5, Math.random() * .03, .5 * k);
+    for (let i = 0; i < 7000; i++) {
+      const r = Math.sqrt(Math.random()) * R, start = Math.random() * TAU;
+      const sweep = Math.min(TAU, (16 + Math.random() * 150) * k / Math.max(r, 1));
+      const light = Math.random() < .55;
+      stroke(r, start, start + sweep, light, (light ? .04 : .025) + Math.random() * (light ? .1 : .06), (.4 + Math.random() * .5) * k);
+    }
+    canvas.toBlob(blob => { if (blob) header.style.setProperty("--sd-grain", `url(${URL.createObjectURL(blob)})`); });
+  } catch (e) {}
+};var initHeader=function initHeader(root, { open: openInitially = false } = {}) {
   const header = root.matches?.("[data-sd-header]") ? root : root.querySelector("[data-sd-header]");
   if (!header) return () => {};
   const button = header.querySelector("[data-sd-toggle]");
@@ -353,4 +446,4 @@
     });
     pressedLinks.clear();
   };
-};initHeader(document.body,{open:new URLSearchParams(location.search).get("menu")==="open"});})();</script></body></html>
+};setTimeout(()=>paintGrain(document.querySelector("[data-sd-header]")),0);initHeader(document.body,{open:new URLSearchParams(location.search).get("menu")==="open"});})();</script></body></html>
