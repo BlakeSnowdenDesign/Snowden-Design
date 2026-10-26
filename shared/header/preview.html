@@ -17,9 +17,9 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
 .stage { background:var(--stage); border-radius:14px; overflow:hidden; border:1px solid var(--line); }
 .stage img { display:block; width:100%; height:auto; }
 .stage iframe { display:block; width:100%; border:0; background:transparent; }
-.phone iframe { height:720px; max-width:440px; margin:0 auto; }
+.phone iframe { height:620px; max-width:440px; margin:0 auto; }
 .scroll { overflow-x:auto; }
-.scroll iframe { width:1100px; height:200px; }
+.scroll iframe { width:1100px; height:150px; }
 
 .copy { display:grid; gap:12px; }
 .copy-bar { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
@@ -153,13 +153,13 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   position: absolute;
   z-index: 1;
   top: 8px;
-  left: clamp(18%, 19vw, 21%);
+  left: clamp(11%, 13vw, 15%);
   right: clamp(82px, 8vw, 112px);
   max-height: calc(100dvh - 18px);
   overflow: visible;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: minmax(45px, auto);
+  grid-auto-rows: minmax(38px, auto);
   align-content: start;
   gap: 9px;
   padding: 5px 5px 10px;
@@ -178,9 +178,9 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   display: flex;
   align-items: center;
   isolation: isolate;
-  min-height: 45px;
+  min-height: 38px;
   width: 100%;
-  padding: 7px 14px;
+  padding: 4px 14px;
   border-radius: 14px;
   border: 4px solid transparent;
   background:
@@ -212,7 +212,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     0 9px 16px -4px rgba(96,66,28,.3);
   color: #0b0e10;
   text-decoration: none;
-  font-size: clamp(14px, 4.1vw, 16px);
+  font-size: clamp(13px, 3.8vw, 14.5px);
   line-height: 1.2;
   font-weight: 650;
   font-style: normal;
@@ -307,6 +307,17 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     0 1px 0 1px rgba(255,255,255,.5),
     0 1px 2px rgba(96,70,36,.28);
 }
+.sd-header.is-closing .sd-header__panel { visibility: visible; pointer-events: none; }
+.sd-header.is-closing .sd-header__link {
+  opacity: 1;
+  transform: translateX(0) rotateY(0);
+  animation: sd-glass-leave .42s cubic-bezier(.5,0,.75,.2) forwards;
+  animation-delay: calc(var(--i-out, 0) * 90ms);
+}
+@keyframes sd-glass-leave {
+  from { opacity: 1; transform: translateX(0) rotateY(0); }
+  to { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
+}
 @keyframes sd-glass-arrive {
   from { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
   to { opacity: 1; transform: translateX(0) rotateY(0); }
@@ -317,7 +328,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
 }
 @media (max-width: 900px) {
   .sd-header__panel {
-    left: clamp(16%, 18vw, 20%);
+    left: clamp(10%, 12vw, 16%);
     right: clamp(76px, 9vw, 96px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -335,7 +346,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     gap: 8px;
     padding: 5px 5px 14px;
   }
-  .sd-header__link { min-height: 60px; border-width: 5px; border-radius: 16px; font-size: 20px; font-weight: 700; padding-inline: 20px; }
+  .sd-header__link { min-height: 50px; border-width: 5px; border-radius: 16px; font-size: 17px; font-weight: 700; padding-inline: 18px; }
 }
 @media (max-width: 380px) {
   .sd-header__panel { left: 10px; right: 10px; }
@@ -395,10 +406,19 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   const panel = header.querySelector(&quot;.sd-header__panel&quot;);
   const links = [...header.querySelectorAll(&quot;.sd-header__link&quot;)];
   let isOpen = false;
+  let closeTimer = 0;
+  const reduceMotion = window.matchMedia(&quot;(prefers-reduced-motion: reduce)&quot;);
 
   function setOpen(next, focus = false) {
     if (next) measureRollout();
     isOpen = next;
+    // Closing plays the arrival in reverse (see .is-closing), then hides the panel.
+    clearTimeout(closeTimer);
+    header.classList.remove(&quot;is-closing&quot;);
+    if (!next &amp;&amp; header.classList.contains(&quot;is-open&quot;) &amp;&amp; !reduceMotion.matches) {
+      header.classList.add(&quot;is-closing&quot;);
+      closeTimer = setTimeout(() =&gt; header.classList.remove(&quot;is-closing&quot;), links.length * 90 + 450);
+    }
     header.classList.toggle(&quot;is-open&quot;, next);
     button.setAttribute(&quot;aria-expanded&quot;, String(next));
     button.setAttribute(&quot;aria-label&quot;, next ? &quot;Close site menu&quot; : &quot;Open site menu&quot;);
@@ -448,6 +468,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     });
     ordered.forEach((item, order) =&gt; {
       item.link.style.setProperty(&quot;--i&quot;, String(order));
+      item.link.style.setProperty(&quot;--i-out&quot;, String(ordered.length - 1 - order));
       const narrowStack = window.matchMedia(&quot;(max-width: 600px)&quot;).matches &amp;&amp; rows.length &gt; 1;
       item.link.style.setProperty(&quot;--entry-x&quot;, narrowStack ? &quot;clamp(18px, 8vw, 34px)&quot; : `${Math.max(36, panel.clientWidth - item.right + 36)}px`);
     });
@@ -472,6 +493,8 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     document.removeEventListener(&quot;pointerdown&quot;, outside);
     window.removeEventListener(&quot;resize&quot;, measureRollout);
     resizeObserver?.disconnect();
+    clearTimeout(closeTimer);
+    header.classList.remove(&quot;is-closing&quot;);
     links.forEach(link =&gt; {
       link.removeEventListener(&quot;click&quot;, onLink);
       link.removeEventListener(&quot;pointerdown&quot;, pressLink);
@@ -603,13 +626,13 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   position: absolute;
   z-index: 1;
   top: 8px;
-  left: clamp(18%, 19vw, 21%);
+  left: clamp(11%, 13vw, 15%);
   right: clamp(82px, 8vw, 112px);
   max-height: calc(100dvh - 18px);
   overflow: visible;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: minmax(45px, auto);
+  grid-auto-rows: minmax(38px, auto);
   align-content: start;
   gap: 9px;
   padding: 5px 5px 10px;
@@ -628,9 +651,9 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   display: flex;
   align-items: center;
   isolation: isolate;
-  min-height: 45px;
+  min-height: 38px;
   width: 100%;
-  padding: 7px 14px;
+  padding: 4px 14px;
   border-radius: 14px;
   border: 4px solid transparent;
   background:
@@ -662,7 +685,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     0 9px 16px -4px rgba(96,66,28,.3);
   color: #0b0e10;
   text-decoration: none;
-  font-size: clamp(14px, 4.1vw, 16px);
+  font-size: clamp(13px, 3.8vw, 14.5px);
   line-height: 1.2;
   font-weight: 650;
   font-style: normal;
@@ -757,6 +780,17 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     0 1px 0 1px rgba(255,255,255,.5),
     0 1px 2px rgba(96,70,36,.28);
 }
+.sd-header.is-closing .sd-header__panel { visibility: visible; pointer-events: none; }
+.sd-header.is-closing .sd-header__link {
+  opacity: 1;
+  transform: translateX(0) rotateY(0);
+  animation: sd-glass-leave .42s cubic-bezier(.5,0,.75,.2) forwards;
+  animation-delay: calc(var(--i-out, 0) * 90ms);
+}
+@keyframes sd-glass-leave {
+  from { opacity: 1; transform: translateX(0) rotateY(0); }
+  to { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
+}
 @keyframes sd-glass-arrive {
   from { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
   to { opacity: 1; transform: translateX(0) rotateY(0); }
@@ -767,7 +801,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
 }
 @media (max-width: 900px) {
   .sd-header__panel {
-    left: clamp(16%, 18vw, 20%);
+    left: clamp(10%, 12vw, 16%);
     right: clamp(76px, 9vw, 96px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -785,7 +819,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     gap: 8px;
     padding: 5px 5px 14px;
   }
-  .sd-header__link { min-height: 60px; border-width: 5px; border-radius: 16px; font-size: 20px; font-weight: 700; padding-inline: 20px; }
+  .sd-header__link { min-height: 50px; border-width: 5px; border-radius: 16px; font-size: 17px; font-weight: 700; padding-inline: 18px; }
 }
 @media (max-width: 380px) {
   .sd-header__panel { left: 10px; right: 10px; }
@@ -845,10 +879,19 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   const panel = header.querySelector(&quot;.sd-header__panel&quot;);
   const links = [...header.querySelectorAll(&quot;.sd-header__link&quot;)];
   let isOpen = false;
+  let closeTimer = 0;
+  const reduceMotion = window.matchMedia(&quot;(prefers-reduced-motion: reduce)&quot;);
 
   function setOpen(next, focus = false) {
     if (next) measureRollout();
     isOpen = next;
+    // Closing plays the arrival in reverse (see .is-closing), then hides the panel.
+    clearTimeout(closeTimer);
+    header.classList.remove(&quot;is-closing&quot;);
+    if (!next &amp;&amp; header.classList.contains(&quot;is-open&quot;) &amp;&amp; !reduceMotion.matches) {
+      header.classList.add(&quot;is-closing&quot;);
+      closeTimer = setTimeout(() =&gt; header.classList.remove(&quot;is-closing&quot;), links.length * 90 + 450);
+    }
     header.classList.toggle(&quot;is-open&quot;, next);
     button.setAttribute(&quot;aria-expanded&quot;, String(next));
     button.setAttribute(&quot;aria-label&quot;, next ? &quot;Close site menu&quot; : &quot;Open site menu&quot;);
@@ -898,6 +941,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     });
     ordered.forEach((item, order) =&gt; {
       item.link.style.setProperty(&quot;--i&quot;, String(order));
+      item.link.style.setProperty(&quot;--i-out&quot;, String(ordered.length - 1 - order));
       const narrowStack = window.matchMedia(&quot;(max-width: 600px)&quot;).matches &amp;&amp; rows.length &gt; 1;
       item.link.style.setProperty(&quot;--entry-x&quot;, narrowStack ? &quot;clamp(18px, 8vw, 34px)&quot; : `${Math.max(36, panel.clientWidth - item.right + 36)}px`);
     });
@@ -922,6 +966,8 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     document.removeEventListener(&quot;pointerdown&quot;, outside);
     window.removeEventListener(&quot;resize&quot;, measureRollout);
     resizeObserver?.disconnect();
+    clearTimeout(closeTimer);
+    header.classList.remove(&quot;is-closing&quot;);
     links.forEach(link =&gt; {
       link.removeEventListener(&quot;click&quot;, onLink);
       link.removeEventListener(&quot;pointerdown&quot;, pressLink);
@@ -1057,13 +1103,13 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   position: absolute;
   z-index: 1;
   top: 8px;
-  left: clamp(18%, 19vw, 21%);
+  left: clamp(11%, 13vw, 15%);
   right: clamp(82px, 8vw, 112px);
   max-height: calc(100dvh - 18px);
   overflow: visible;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: minmax(45px, auto);
+  grid-auto-rows: minmax(38px, auto);
   align-content: start;
   gap: 9px;
   padding: 5px 5px 10px;
@@ -1082,9 +1128,9 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   display: flex;
   align-items: center;
   isolation: isolate;
-  min-height: 45px;
+  min-height: 38px;
   width: 100%;
-  padding: 7px 14px;
+  padding: 4px 14px;
   border-radius: 14px;
   border: 4px solid transparent;
   background:
@@ -1116,7 +1162,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     0 9px 16px -4px rgba(96,66,28,.3);
   color: #0b0e10;
   text-decoration: none;
-  font-size: clamp(14px, 4.1vw, 16px);
+  font-size: clamp(13px, 3.8vw, 14.5px);
   line-height: 1.2;
   font-weight: 650;
   font-style: normal;
@@ -1211,6 +1257,17 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     0 1px 0 1px rgba(255,255,255,.5),
     0 1px 2px rgba(96,70,36,.28);
 }
+.sd-header.is-closing .sd-header__panel { visibility: visible; pointer-events: none; }
+.sd-header.is-closing .sd-header__link {
+  opacity: 1;
+  transform: translateX(0) rotateY(0);
+  animation: sd-glass-leave .42s cubic-bezier(.5,0,.75,.2) forwards;
+  animation-delay: calc(var(--i-out, 0) * 90ms);
+}
+@keyframes sd-glass-leave {
+  from { opacity: 1; transform: translateX(0) rotateY(0); }
+  to { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
+}
 @keyframes sd-glass-arrive {
   from { opacity: 0; transform: translateX(var(--entry-x, 0px)) rotateY(-5deg); }
   to { opacity: 1; transform: translateX(0) rotateY(0); }
@@ -1221,7 +1278,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
 }
 @media (max-width: 900px) {
   .sd-header__panel {
-    left: clamp(16%, 18vw, 20%);
+    left: clamp(10%, 12vw, 16%);
     right: clamp(76px, 9vw, 96px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1239,7 +1296,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     gap: 8px;
     padding: 5px 5px 14px;
   }
-  .sd-header__link { min-height: 60px; border-width: 5px; border-radius: 16px; font-size: 20px; font-weight: 700; padding-inline: 20px; }
+  .sd-header__link { min-height: 50px; border-width: 5px; border-radius: 16px; font-size: 17px; font-weight: 700; padding-inline: 18px; }
 }
 @media (max-width: 380px) {
   .sd-header__panel { left: 10px; right: 10px; }
@@ -1299,10 +1356,19 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
   const panel = header.querySelector(".sd-header__panel");
   const links = [...header.querySelectorAll(".sd-header__link")];
   let isOpen = false;
+  let closeTimer = 0;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function setOpen(next, focus = false) {
     if (next) measureRollout();
     isOpen = next;
+    // Closing plays the arrival in reverse (see .is-closing), then hides the panel.
+    clearTimeout(closeTimer);
+    header.classList.remove("is-closing");
+    if (!next &amp;&amp; header.classList.contains("is-open") &amp;&amp; !reduceMotion.matches) {
+      header.classList.add("is-closing");
+      closeTimer = setTimeout(() =&gt; header.classList.remove("is-closing"), links.length * 90 + 450);
+    }
     header.classList.toggle("is-open", next);
     button.setAttribute("aria-expanded", String(next));
     button.setAttribute("aria-label", next ? "Close site menu" : "Open site menu");
@@ -1352,6 +1418,7 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     });
     ordered.forEach((item, order) =&gt; {
       item.link.style.setProperty("--i", String(order));
+      item.link.style.setProperty("--i-out", String(ordered.length - 1 - order));
       const narrowStack = window.matchMedia("(max-width: 600px)").matches &amp;&amp; rows.length &gt; 1;
       item.link.style.setProperty("--entry-x", narrowStack ? "clamp(18px, 8vw, 34px)" : `${Math.max(36, panel.clientWidth - item.right + 36)}px`);
     });
@@ -1376,6 +1443,8 @@ figcaption { font-size:12px; letter-spacing:.08em; text-transform:uppercase; col
     document.removeEventListener("pointerdown", outside);
     window.removeEventListener("resize", measureRollout);
     resizeObserver?.disconnect();
+    clearTimeout(closeTimer);
+    header.classList.remove("is-closing");
     links.forEach(link =&gt; {
       link.removeEventListener("click", onLink);
       link.removeEventListener("pointerdown", pressLink);

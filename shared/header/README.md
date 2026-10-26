@@ -14,4 +14,5 @@ Replit designed this header; Claude restyled the menu buttons only. The HTML str
 - **Lathe grain**: a small script paints fine circular arcs on a canvas once and hands it to CSS as `--sd-grain`. Without JS, a CSS ring pattern is used instead.
 - **Rim**: a polished bezel in the border box, a dark groove and bright lip as inset shadows, rim glints, and a warm drop shadow for the tan wall.
 - **States**: on hover/focus the plate lifts, the reflection rotates 24° (`@property --sd-turn`) and Replit's light sweep crosses it. Pressing sinks the plate. Reduced motion turns the rotation and sweep off.
-- Phones (≤600px) get taller plates (60px, 20px labels) closer to the study's proportions.
+- **Closing**: the plates slide back out the way they arrived, last one in leaving first (`.is-closing`, `--i-out`), then the panel hides. Reduced motion skips this and hides at once.
+- Plates are 38px tall on desktop (14.5px labels, panel widened so every label fits on one line) and 50px on phones (17px labels).
