@@ -21,7 +21,7 @@ Follows the design direction, the SEO/GEO spec (PR #5) and the copy deck (`docs/
 - **H1** (Heading 1, Google Sans Flex 800, 64 to 96 px, white; second line in Glacier Aqua `#7FE0D4`): **Blake Snowden, / Denver web developer and 3D artist.**
 - **Intro** (Satoshi 19 px, white at 80%): I'm Blake Snowden, a Denver web developer and 3D artist. I build Wix websites, interactive 3D and SEO and GEO growth plans, with strategy, design, media and code coming from the same desk.
 - **Button:** Book a free consultation → /contact. Glacier Aqua pill, Midnight Ink text, 48 px tall. [Keep "free" only if Blake confirms it.]
-- **Signature:** Embed HTML with `shared/snowden-signature.html` (transparent background), about 560 × 520 px on the right half. On phone, set it to full width at 50% opacity, or hide it.
+- **Signature:** Embed HTML with `shared/snowden-signature.html` (transparent background), about 560 × 520 px on the right half. On phone, set it to full width at 50% opacity, or hide it. Accessible name: "Snowden Design geometric signature, decorative".
 
 ### 3. Answer blocks [Native, two columns; Snow background]
 - **H2: Who is Blake Snowden?** Blake Snowden is a web developer and 3D artist in Denver, Colorado, and the founder of Snowden Design. He designs and builds Wix websites, creates graphics, video and 3D product renders, and pairs that with B2B and B2C business development strategy, so one person is accountable from the first plan to launch. [If Blake hasn't delivered product renders, change "3D product renders" to "interactive 3D", here and in the schema.]
@@ -42,7 +42,7 @@ Two columns: the portrait on the left, at 340 px with a 28 px radius, and the te
 - **Portrait:** native image. File name `blake-snowden-denver-web-developer-3d-artist.webp`. Alt text: "Blake Snowden, Denver web developer and 3D artist, founder of Snowden Design". [Swap in a high-resolution headshot when there is one.]
 
 ### 5. Embed
-Embed HTML, full width, paste `snowden-about.html`. Height: **3,300 px** desktop, **3,490 px** tablet, **4,480 px** phone. Accessible name: "Snowden Design services, principles and client sites". Its links already point to /packages (website maintenance plans) and /work (See the Denver web design portfolio).
+Embed HTML, full width, paste `snowden-about.html`. Height: **3,300 px** desktop, **3,490 px** tablet, **4,480 px** phone. Accessible name: "Snowden Design services, principles and client sites". Enter it in the embed's Accessibility settings (Accessible name / title); Wix writes it to the iframe `title`. Its links already point to /packages (website maintenance plans) and /work (See the Denver web design portfolio).
 
 ### 6. Client links line [Native, small text under the embed]
 Helen Falls Lodge, Shadow Creek Ranch, Schultz's Gourmet, Pasta Jay's, Mojo Broadband, Edge Internet and Apes Brain. Add two links: "See the Denver web design portfolio" → /work, and "3D architectural visualization for Mongrain" → /3d-visualization.
