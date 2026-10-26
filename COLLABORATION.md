@@ -26,6 +26,7 @@ Two agents work in this repo. These rules keep them from overwriting each other.
 | Work (`pages/work/`) | _unassigned_ | |
 | About (`pages/about/`) | _unassigned_ | |
 | Contact (`pages/contact/`) | _unassigned_ | |
+| 3D Visualization (`pages/3d-visualization/`) | Claude | Mongrain 3D showcase built; awaits Blake's review |
 
 Claim a page by editing this table in your PR before you start it.
 
