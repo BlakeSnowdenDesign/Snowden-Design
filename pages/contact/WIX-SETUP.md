@@ -22,10 +22,10 @@ Use the same section style as the About hero: Midnight Ink, 40 px radius, 1,240 
 - **Buttons:**
   - Call 720-340-2611 → `tel:+17203402611` (Glacier Aqua pill)
   - Email blake@snowden-design.com → `mailto:blake@snowden-design.com` (outline pill)
-- **Signature embed:** on the right, about 560 × 480 px, transparent. Hide it on phone.
+- **Signature embed:** on the right, about 560 × 480 px, transparent. Hide it on phone. Accessible name: "Snowden Design geometric signature, decorative".
 
 ### 3. Embed
-Embed HTML, full width, paste `snowden-contact.html`. Height: **1,050 px** desktop, **1,190 px** tablet, **1,710 px** phone. Accessible name: "How a Snowden Design project starts".
+Embed HTML, full width, paste `snowden-contact.html`. Height: **1,050 px** desktop, **1,190 px** tablet, **1,710 px** phone. Accessible name: "How a Snowden Design project starts". Enter it in the embed's Accessibility settings (Accessible name / title); Wix writes it to the iframe `title`.
 
 ### 4. Native Wix Form (Add > Contact & Forms)
 Place the form directly under the embed, in a Snow `#FAFCFC` section that is 1,240 px wide.
