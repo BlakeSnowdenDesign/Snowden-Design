@@ -40,63 +40,13 @@ a{color:inherit}
 .sd-btn svg{width:18px;height:18px;transition:transform .45s var(--sd-ease)}
 .sd-btn:hover svg{transform:translateX(5px)}
 .sd-btn--aqua{background:var(--sd-aqua);color:var(--sd-ink);box-shadow:0 1px 2px rgba(0,0,0,.2),0 16px 40px -12px rgba(127,224,212,.55)}
-.sd-btn--ghost{color:#fff;border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.04)}
-.sd-btn--ghost:hover{background:rgba(255,255,255,.12)}
 .sd-btn--ink{background:var(--sd-ink);color:#fff;box-shadow:var(--sd-shadow)}
 
-.sd-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;color:#fff;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .sd-dot{width:7px;height:7px;border-radius:50%;background:var(--sd-sun);box-shadow:0 0 0 4px rgba(242,169,59,.18)}
-
-/* ============ 00 HERO ============ */
-.sd-hero{position:relative;border-radius:40px;overflow:hidden;color:#fff;
-  background:radial-gradient(120% 90% at 85% 10%,#1B5866 0%,rgba(27,88,102,0) 55%),radial-gradient(80% 70% at 0% 100%,#0F3C47 0%,rgba(15,60,71,0) 60%),var(--sd-ink);
-  box-shadow:var(--sd-shadow-lg);min-height:760px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:40px;padding:64px 64px 120px}
-.sd-hero__grid{position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:linear-gradient(rgba(127,224,212,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,224,212,.07) 1px,transparent 1px);
-  background-size:64px 64px;-webkit-mask-image:radial-gradient(90% 80% at 70% 30%,#000 30%,transparent 80%);mask-image:radial-gradient(90% 80% at 70% 30%,#000 30%,transparent 80%)}
-.sd-hero__top{position:absolute;top:28px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;z-index:2}
-.sd-hero__logo{height:40px;width:auto}
-.sd-hero__coord{color:rgba(255,255,255,.6)}
-.sd-hero__copy{position:relative;z-index:2;padding-top:40px}
-.sd-hero__pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
-.sd-hero__title{font-size:clamp(46px,7.4vw,104px);font-weight:800;line-height:.94;letter-spacing:-.035em}
-.sd-hero__title span{display:block}
-.sd-hero__title .sd-l2{color:var(--sd-aqua)}
-.sd-hero__sub{max-width:520px;margin:28px 0 36px;font-size:19px;line-height:1.6;color:rgba(255,255,255,.78)}
-.sd-hero__ctas{display:flex;flex-wrap:wrap;gap:14px}
-.sd-hero__ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px;z-index:1;pointer-events:none}
-.sd-hero__ridge path{fill:none;stroke:var(--sd-aqua);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2600;stroke-dashoffset:2600;animation:sdDraw 3.2s .6s var(--sd-ease) forwards}
-.sd-hero__ridge path+path{stroke:rgba(127,224,212,.35);animation-delay:.9s}
-.sd-hero__ridge-label{position:absolute;left:64px;bottom:26px;z-index:2;color:rgba(255,255,255,.55)}
-@keyframes sdDraw{to{stroke-dashoffset:0}}
-
-/* Screenshot stack */
-.sd-stack{position:relative;z-index:2;height:520px}
-.sd-shot{position:absolute;width:78%;border-radius:22px;overflow:hidden;background:#0d2731;
-  box-shadow:0 2px 4px rgba(0,0,0,.25),0 30px 70px -20px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12);
-  transition:transform .9s var(--sd-ease),box-shadow .9s var(--sd-ease)}
-.sd-shot__bar{display:flex;gap:6px;align-items:center;height:28px;padding:0 12px;background:rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
-.sd-shot__bar i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3)}
-.sd-shot__bar b{margin-left:10px;font:500 10px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-.sd-shot__img{aspect-ratio:16/10;overflow:hidden}
-.sd-shot__img img{width:100%;height:100%;object-fit:cover;object-position:top center;animation:kenBurns 22s ease-out both}
-@keyframes kenBurns{from{transform:scale(1.16)}to{transform:scale(1)}}
-.sd-shot--1{top:0;right:0;transform:rotate(3deg);animation:sdFloat 9s ease-in-out infinite}
-.sd-shot--2{top:150px;left:0;transform:rotate(-4deg);animation:sdFloat 10s -3s ease-in-out infinite}
-.sd-shot--3{top:300px;right:6%;transform:rotate(1.5deg);animation:sdFloat 11s -6s ease-in-out infinite}
-@keyframes sdFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
-.sd-stack:hover .sd-shot--1{transform:rotate(5deg) translate(24px,-20px)}
-.sd-stack:hover .sd-shot--2{transform:rotate(-7deg) translate(-26px,0)}
-.sd-stack:hover .sd-shot--3{transform:rotate(3deg) translate(14px,26px)}
-
-/* Hero entrance */
-.sd-in{opacity:0;transform:translateY(30px);filter:blur(8px);animation:sdIn 1.1s var(--sd-ease) forwards}
-.sd-in--1{animation-delay:.1s}.sd-in--2{animation-delay:.22s}.sd-in--3{animation-delay:.34s}.sd-in--4{animation-delay:.46s}.sd-in--5{animation-delay:.6s}
-@keyframes sdIn{to{opacity:1;transform:none;filter:blur(0)}}
 
 /* ============ Section header ============ */
 .sd-section{padding:130px 0 0}
+.sd-wrap>.sd-section:first-child{padding-top:24px}
 .sd-head{display:grid;grid-template-columns:120px 1fr 300px;gap:32px;align-items:end;padding-bottom:34px;position:relative;margin-bottom:56px}
 .sd-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--sd-line);transform-origin:left;transform:scaleX(1);transition:transform 1.4s var(--sd-ease) .2s}
 .sd-js .sd-head:not(.is-in)::after{transform:scaleX(0)}
@@ -225,30 +175,8 @@ a{color:inherit}
 .sd-marquee span:nth-child(even){color:transparent;-webkit-text-stroke:1.2px var(--sd-ink)}
 @keyframes sdMarq{to{transform:translateX(-100%)}}
 
-/* ============ CTA ============ */
-.sd-cta{margin:130px 0 0;border-radius:40px;background:var(--sd-ink);color:#fff;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;box-shadow:var(--sd-shadow-lg);min-height:520px}
-.sd-cta__copy{padding:72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
-.sd-cta__copy .sd-eyebrow{color:var(--sd-aqua)}
-.sd-cta h2{font-size:clamp(40px,5.2vw,74px);font-weight:800;line-height:.96}
-.sd-cta h2 span{display:block;color:var(--sd-aqua)}
-.sd-cta p{color:rgba(255,255,255,.74);margin:24px 0 32px;max-width:440px}
-.sd-cta__links{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:30px}
-.sd-cta__links a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);transition:color .4s,border-color .4s}
-.sd-cta__links a:hover{color:var(--sd-aqua);border-color:var(--sd-aqua)}
-.sd-cta__photo{position:relative;overflow:hidden}
-.sd-cta__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform 1.6s var(--sd-ease)}
-.sd-cta:hover .sd-cta__photo img{transform:scale(1.05)}
-.sd-cta__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--sd-ink) 0%,rgba(10,29,38,.55) 35%,rgba(10,29,38,.1) 100%)}
-
-/* Footer */
-.sd-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:40px 4px 44px;color:var(--sd-muted)}
-
 /* ============ Responsive ============ */
 @media (max-width:1000px){
-  .sd-hero{grid-template-columns:1fr;padding:110px 44px 150px;gap:30px}
-  .sd-hero__top{left:44px;right:44px}
-  .sd-hero__ridge-label{left:44px}
-  .sd-stack{height:470px;max-width:640px;width:100%;justify-self:center}
   .sd-cards{grid-template-columns:repeat(2,1fr)}
   .sd-head{grid-template-columns:90px 1fr}
   .sd-head__note{grid-column:2}
@@ -263,24 +191,12 @@ a{color:inherit}
   .sd-portrait{max-width:460px}
   .sd-band{grid-template-columns:auto 1fr}
   .sd-band .sd-btn{grid-column:1/-1;justify-self:start}
-  .sd-cta{grid-template-columns:1fr}
-  .sd-cta__photo{min-height:300px;order:-1}
-  .sd-cta__photo::after{background:linear-gradient(0deg,var(--sd-ink) 0%,rgba(10,29,38,.3) 60%,rgba(10,29,38,.1) 100%)}
   .sd-quote__body{padding:60px 44px 48px}
 }
 @media (max-width:600px){
   body{font-size:16px}
   .sd-page{padding:12px 12px 0}
-  .sd-hero{padding:96px 22px 130px;border-radius:30px;min-height:0}
-  .sd-hero__top{top:22px;left:22px;right:22px}
-  .sd-hero__coord{display:none}
-  .sd-hero__logo{height:32px}
-  .sd-hero__ridge-label{left:22px}
-  .sd-hero__sub{font-size:17px}
-  .sd-hero__ctas .sd-btn,.sd-story .sd-btn,.sd-cta .sd-btn,.sd-band .sd-btn{width:100%;justify-content:center}
-  .sd-stack{height:330px}
-  .sd-shot{width:84%}
-  .sd-shot--2{top:100px}.sd-shot--3{top:200px}
+  .sd-story .sd-btn,.sd-band .sd-btn{width:100%;justify-content:center}
   .sd-section{padding-top:96px}
   .sd-head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}
   .sd-idx{margin-top:0}
@@ -297,14 +213,9 @@ a{color:inherit}
   .sd-quote{margin-top:96px;border-radius:30px}
   .sd-quote__body{padding:44px 26px 36px}
   .sd-marquee span{font-size:20px}
-  .sd-cta{margin-top:96px;border-radius:30px}
-  .sd-cta__copy{padding:40px 26px 44px}
-  .sd-foot{flex-direction:column;padding:32px 6px 36px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .sd-in{opacity:1;transform:none;filter:none}
-  .sd-hero__ridge path{stroke-dashoffset:0}
   .sd-js .sd-r{opacity:1;translate:none;scale:none}
   .sd-js .sd-mask,.sd-js .sd-proj__img.sd-mask{clip-path:inset(0 round 22px)}
   .sd-js .sd-mask img{transform:none}
@@ -316,50 +227,6 @@ a{color:inherit}
 <body>
 <main class="sd-page">
 <div class="sd-wrap">
-
-  <!-- 00 HERO -->
-  <section class="sd-hero" aria-label="Snowden Design">
-    <div class="sd-hero__grid" aria-hidden="true"></div>
-    <div class="sd-hero__top sd-in sd-in--1">
-      <img class="sd-hero__logo" src="https://static.wixstatic.com/media/2fde66_a5f60e520e2d43c3ac2eaea2bc564bf8~mv2.png/v1/fill/w_458,h_157,al_c,q_90,enc_auto/sd-logo-white.png" alt="Snowden Design" width="117" height="40">
-      <span class="sd-mono sd-hero__coord">39.7392° N / 104.9903° W</span>
-    </div>
-
-    <div class="sd-hero__copy">
-      <div class="sd-hero__pills sd-in sd-in--1">
-        <span class="sd-pill sd-mono"><span class="sd-dot" aria-hidden="true"></span>Denver, Colorado</span>
-        <span class="sd-pill sd-mono">Web design studio</span>
-      </div>
-      <h1 class="sd-h sd-hero__title sd-in sd-in--2"><span>Full spectrum</span><span class="sd-l2">strategy.</span></h1>
-      <p class="sd-hero__sub sd-in sd-in--3">Snowden Design blends technology and creativity to build engaging, highly interactive online experiences.</p>
-      <div class="sd-hero__ctas sd-in sd-in--4">
-        <a class="sd-btn sd-btn--aqua" href="https://www.snowden-design.com/projects" target="_top">See the work
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="sd-btn sd-btn--ghost" href="https://www.snowden-design.com/contact-1" target="_top">Start a project</a>
-      </div>
-    </div>
-
-    <div class="sd-stack sd-in sd-in--5" aria-label="Recent websites">
-      <figure class="sd-shot sd-shot--2" style="margin:0">
-        <div class="sd-shot__bar" aria-hidden="true"><i></i><i></i><i></i><b>shadowcreekranch.co</b></div>
-        <div class="sd-shot__img"><img src="https://static.wixstatic.com/media/2fde66_c8932db74d9045d4b765f5187c99e67c~mv2.png/v1/fill/w_1000,h_625,al_t,q_85,enc_auto/shadow-creek-ranch.png" alt="Shadow Creek Ranch website" loading="eager"></div>
-      </figure>
-      <figure class="sd-shot sd-shot--3" style="margin:0">
-        <div class="sd-shot__bar" aria-hidden="true"><i></i><i></i><i></i><b>schultzgourmet.com</b></div>
-        <div class="sd-shot__img"><img src="https://static.wixstatic.com/media/2fde66_f995dc2fb0f9471fbcc2d7edc0eb11ed~mv2.png/v1/fill/w_1000,h_625,al_t,q_85,enc_auto/schultz-gourmet.png" alt="Schultz's Gourmet website" loading="eager"></div>
-      </figure>
-      <figure class="sd-shot sd-shot--1" style="margin:0">
-        <div class="sd-shot__bar" aria-hidden="true"><i></i><i></i><i></i><b>helenfalls.com</b></div>
-        <div class="sd-shot__img"><img src="https://static.wixstatic.com/media/2fde66_5bab9e8c59f44e64a3f1ace9cb116342~mv2.jpg/v1/fill/w_1000,h_625,al_t,q_85,enc_auto/helen-falls-lodge.jpg" alt="Helen Falls Lodge website" loading="eager"></div>
-      </figure>
-    </div>
-
-    <svg class="sd-hero__ridge" viewBox="0 0 1240 150" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 132 L70 118 L120 124 L190 92 L240 104 L300 70 L345 86 L400 52 L452 78 L505 60 L560 88 L610 40 L668 74 L720 58 L780 96 L840 64 L890 82 L950 46 L1010 80 L1065 68 L1120 100 L1180 90 L1240 112"/>
-      <path d="M0 142 L90 130 L160 136 L230 114 L310 122 L380 100 L450 112 L520 94 L600 116 L680 98 L760 120 L850 104 L930 118 L1010 102 L1090 124 L1170 112 L1240 128"/>
-    </svg>
-    <span class="sd-mono sd-hero__ridge-label sd-in sd-in--5">Front Range / Elev. 5,280 ft</span>
-  </section>
 
   <!-- 01 MEET -->
   <section class="sd-section" aria-labelledby="sd-meet-h">
@@ -514,7 +381,7 @@ a{color:inherit}
           <span class="sd-proj__go">Visit site <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
         </div>
       </a>
-      <a class="sd-proj sd-proj--next sd-r" style="--d:.2s" href="https://www.snowden-design.com/contact-1" target="_top">
+      <a class="sd-proj sd-proj--next sd-r" style="--d:.2s" href="https://www.snowden-design.com/contact" target="_top">
         <span class="sd-mono">P—08 / Open</span>
         <div>
           <h3 class="sd-h">Your project, next.</h3>
@@ -538,7 +405,7 @@ a{color:inherit}
         <h3 class="sd-h">Designed to look good. Built to perform.</h3>
         <p>Every plan is built to do three things: look good, engage your audience, and educate them through content.</p>
         <p>The result is a site that tells your story with motion, video and photography, then makes the next step easy.</p>
-        <a class="sd-btn sd-btn--ink" href="https://www.snowden-design.com/contact-1" target="_top">Book a discovery call
+        <a class="sd-btn sd-btn--ink" href="https://www.snowden-design.com/contact" target="_top">Book a discovery call
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <ol class="sd-rows">
@@ -563,35 +430,11 @@ a{color:inherit}
     </div>
   </figure>
 
-  <!-- CTA -->
-  <section class="sd-cta sd-r" aria-labelledby="sd-cta-h">
-    <div class="sd-cta__copy">
-      <div class="sd-eyebrow sd-mono">Start a project</div>
-      <h2 class="sd-h" id="sd-cta-h">Prepare for <span>success.</span></h2>
-      <p>Have a site that needs to stop showing and start moving people? Let's talk about what it could be.</p>
-      <div><a class="sd-btn sd-btn--aqua" href="https://www.snowden-design.com/contact-1" target="_top">Let's talk
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="sd-cta__links sd-mono">
-        <a href="tel:+19706858733" target="_top">970.685.8733</a>
-        <a href="mailto:blake@snowden-design.com" target="_top">blake@snowden-design.com</a>
-      </div>
-    </div>
-    <div class="sd-cta__photo">
-      <img src="https://static.wixstatic.com/media/2fde66_6b345b156e5c4c99846f39177689894e~mv2.png/v1/fill/w_1200,h_900,al_t,q_85,enc_auto/edge-internet.png" alt="" loading="lazy">
-    </div>
-  </section>
-
-  <footer class="sd-foot sd-mono">
-    <span>Snowden Design / Denver, Colorado</span>
-    <span>Web / Brand / Video / Commerce</span>
-    <span>© <span id="sd-year">2026</span></span>
-  </footer>
 </div>
 </main>
 <script>
 (function(){
   var d=document.documentElement;
-  var y=document.getElementById('sd-year'); if(y) y.textContent=new Date().getFullYear();
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
   d.classList.add('sd-js');
   var io=new IntersectionObserver(function(es){
